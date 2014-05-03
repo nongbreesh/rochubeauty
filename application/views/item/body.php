@@ -1,8 +1,8 @@
-<div class="col-lg-9 shelf">
-    <div class="col-lg-8">
+<div class="col-lg-9 col-md-9 shelf">
+    <div class="col-lg-8 col-md-8">
     <div class="img-detail"><img src="<?= base_url('admin/uploads') ?>/<?= $Product_detail->pic ?>" title="<?= $Product_detail->title ?>" alt="<?= $Product_detail->title ?>" /></div> 
     </div>
-    <div class="prod-detail col-lg-4"> 
+    <div class="prod-detail col-lg-4 col-md-4"> 
         <form  method="post" id="form1" >
 
             <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-condensed">

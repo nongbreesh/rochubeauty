@@ -6,7 +6,7 @@ $_SESSION['chk_load'] = 0;
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-
+        <title>Rochu beauty :: ตัวแทนจำหน่ายผลิตภันท์ ครีมพิษงู ช่วยลด สิว ฝ้า กระ หน้าเด็กลงอีก 10 ปี</title>
         <script type="text/javascript" src="<?php echo base_url('public') ?>/js/jquery-1.7.2.min.js" rel="stylesheet"></script>  
         <link href="<?= base_url('public') ?>/css/bootstrap.css" rel="stylesheet"
               type="text/css" />
@@ -35,24 +35,25 @@ $_SESSION['chk_load'] = 0;
 
         <section class="container wrapper">
             <header>
-                <section class="col-lg-12">
+                <section class=" col-lg-12 col-md-12 col-sm-12">
                     <ul class="mini_nevigator">
                         <li><a href="#">ถาม - ตอบ</a></li>
                         <li><a href="#">เกี่ยวกับเรา</a></li>
-                        <li><a href="#">ติดต่อเรา</a></li>
+                        <li><a href="<?= base_url(); ?>pages/contactus">ติดต่อเรา</a></li>
                     </ul>
                 </section>
-                <section class="col-lg-12 main_menu">
-                    <section class="col-lg-3"><div class="logo"></div></section>
-                    <section class="col-lg-9">
+                <div class="logo"><a href="<?= base_url(); ?>"></a></div>
+                <div class="col-lg-12 main_menu">
+
+                    <section class="col-lg-12">
                         <ul >
                             <li><a href="<?= base_url(); ?>">หน้าแรก</a></li>
                             <li><a href="<?= base_url(); ?>item/all">สินค้าทั้งหมด</a></li>
-                            <li><a href="#">ชำระเงิน</a></li>
-                            <li><a href="#">ส่งข้อความถึงร้าน</a></li>
-                            <li><a href="#">แจ้งชำระเงิน</a></li>
-                            <li><a href="#">สถานะการส่งสินค้า</a></li>
+                            <li><a href="<?= base_url() ?>pages/payment">แจ้งชำระเงิน</a></li>
+                            <li><a href="<?= base_url(); ?>pages/contactus">ติดต่อเรา</a></li>
+                            <li><a href="<?= base_url(); ?>pages/view/10">วิธีการซื้อสินค้า</a></li>
+                            <li><a href="<?= base_url(); ?>pages/trackingdata">สถานะการส่งสินค้า</a></li>
                         </ul>
                     </section>
-                </section>
+                </div>
             </header>

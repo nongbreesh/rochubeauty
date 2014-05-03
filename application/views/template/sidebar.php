@@ -1,5 +1,5 @@
 
-            <div class="col-lg-3 rightmenu">
+            <div class="col-lg-3 col-md-3 col-sm-3 rightmenu">
 
 
                 <div class="layer-2">
@@ -25,14 +25,7 @@
 
                         <div style="clear:both;"></div>
                     </div>
-                    <div style="clear:both;"></div>
-                    <div class="topic"><h1>รายการร้านค้า</h1></div>
-                    <ul class="prod">
-                        <li><i class="icon-file"></i><a href="<?= base_url() ?>pages/contactus">ติดต่อเรา</a></li>
-                        <li><i class="icon-file"></i><a href="<?= base_url() ?>pages/payment">ยืนยันการชำระเงิน</a></li>
-                        <li><i class="icon-file"></i><a href="<?= base_url() ?>affiliate">Affiliate Program</a></li>
-
-                    </ul>
+       
                     <div style="clear:both;"></div>
                     <div class="topic">
                         <h1>ผลิตภัณท์</h1></div>   

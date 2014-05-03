@@ -47,7 +47,7 @@ if (isset($_POST['update'])) {
 }
 ?>
 
-<div class="col-sm-12">
+<div class="col-sm-12 col-md-12">
     <div class="basketzone">
         <?php if (isset($_SESSION['SHOPPING_CART'])): ?>
             <form  method="post">
@@ -92,7 +92,7 @@ if (isset($_POST['update'])) {
                     }
                     ?>
                     <?php
-                    if ($_SESSION['total'] >= 2000) {
+                    if ($_SESSION['total'] >= 999999999999) {
                         $ems = "<font color='#00DD00'>ฟรี!</font>";
                         $total = $_SESSION['total'];
                     } else {
@@ -136,29 +136,29 @@ if (isset($_POST['update'])) {
             </form>         
         <?php endif; ?>
     </div>
-    <div class="col-lg-7">
+    <div class="col-lg-7 col-md-7">
         <div class="contactform">
             <h5>ที่อยู่สำหรับจัดส่งสินค้า</h5>
 
-            <form id="form1" name="form1" method="post" class="form-horizontal" role="form" action="cart/addorder" onSubmit="JavaScript:return fncSubmit();">
+            <form id="form1" name="form1" method="post" class="form-horizontal" role="form" action="cart/addorder" >
                 <div class="form-group">
                     <label for="txt_ownername" class="col-sm-3 control-label">ชื่อผู้รับสินค้า</label>
                     <div  class="col-sm-9">
-                        <input class="form-control" name="txt_ownername" type="text" id="txt_ownername" size="60" class="required"/>
+                        <input required="required"  name="txt_ownername" type="text" id="txt_ownername" size="40" class="required"/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="txt_address" class="col-sm-3 control-label">ที่อยู่สำหรับส่งสินค้า</label>
                     <div  class="col-sm-9">
-                        <input class="form-control" name="txt_address" type="text" id="txt_address" size="60" class="required"/>
+                        <input required="required"   name="txt_address" type="text" id="txt_address" size="40" class="required"/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="txt_ownername" class="col-sm-3 control-label">จังหวัด</label>
                     <div  class="col-sm-9">
-                        <select class="form-control" name="txt_provice" id="txt_provice">
+                        <select required="required"   name="txt_provice" id="txt_provice">
                             <option value=""> เลือกจังหวัด ... </option>
                             <?php foreach ($Province as $items): ?>
                                 <option value="<?= $items->provincename ?>"><?= $items->provincename ?> </option>
@@ -168,27 +168,27 @@ if (isset($_POST['update'])) {
 
                 <div class="form-group">
                     <label for="txt_zipcode" class="col-sm-3 control-label">รหัสไปรษณีย์</label>
-                    <div  class="col-sm-9">
-                        <input class="form-control" name="txt_zipcode" type="text" id="txt_zipcode" size="60" class="required"/>
+                    <div  class="col-sm-9 col-md-9">
+                        <input required="required"  name="txt_zipcode" type="text" id="txt_zipcode" size="40" class="required"/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="txt_tel" class="col-sm-3 control-label">เบอร์โทรติดต่อ</label>
-                    <div  class="col-sm-9">
-                        <input class="form-control" name="txt_tel" type="text" id="txt_tel" size="60" class="required"/>
+                    <div  class="col-sm-9 col-md-9">
+                        <input required="required"  name="txt_tel" type="text" id="txt_tel" size="40" class="required"/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="txt_email" class="col-sm-3 control-label">E-mail</label>
-                    <div  class="col-sm-9">
-                        <input class="form-control" name="txt_email" type="text" id="txt_email" size="60" class="required"/>
+                    <div  class="col-sm-9 col-md-9">
+                        <input required="required"   name="txt_email" type="text" id="txt_email" size="40" class="required"/>
                     </div>
                 </div>
                 <font color="red">*กรุณาตรวจสอบข้อมูลการส่งสินค้าให้ถูกต้อง เนื่องจากถ้าส่งสินค้าไปผิดอาจทำให้ท่านได้รับสินค้าล่าช้า</font>
                 <div class="form-group">
-                    <div class=" col-sm-12">
+                    <div class=" col-sm-12 col-md-12">
                         <input name="input" type="submit" class="btn btn-primary col-sm-12" value="ส่งข้อมูลสั่งซื้อ"  />
                     </div>
                 </div>
@@ -196,35 +196,22 @@ if (isset($_POST['update'])) {
             </form>
         </div>
     </div>
-    <div class="col-lg-5">
+    <div class="col-lg-5 col-md-5">
         <div class="contactpayment">
             <h5>เงื่อนไขการชำระเงิน</h5>
             <label class="radio">
                 <input type="radio" checked="checked" name="paid">    ชำระเงินผ่านการโอนเข้าบัญชีธนาคาร
             </label>
             <ul>
-                <li><img src="<?= base_url('public') ?>/img/bkbank.jpg" width="25" height="25" border="0" " />&nbsp;ธนาคาร&nbsp;กรุงเทพ
-
-                    ประเภท&nbsp;ออมทรัพย์
-
-                    ชื่อบัญชี&nbsp;วีระยุทธ ตะสูงเนิน
-
-                    เลขที่บัญชี&nbsp;930-0057-123&nbsp;</li>
-
-                <li> <img src="<?= base_url('public') ?>/img/icon_scb.gif" width="25" height="25" border="0"/>&nbsp;ธนาคาร&nbsp;ไทยพานิช 
-
-                    ประเภท&nbsp;ออมทรัพย์
-
-                    ชื่อบัญชี&nbsp;วีระยุทธ ตะสูงเนิน
-
-                    เลขที่บัญชี&nbsp;196-2065-249</li>
                 <li><img src="<?= base_url('public') ?>/img/kbank.jpg" width="25" height="25"  border="0"/>&nbsp;ธนาคาร&nbsp;กสิกรไทย
 
+                    สาขา&nbsp;มหาวิทยาลัยเกษตรศาสตร์ บางเขน
+                    
                     ประเภท&nbsp;ออมทรัพย์
 
-                    ชื่อบัญชี&nbsp;วีระยุทธ ตะสูงเนิน
+                    ชื่อบัญชี&nbsp;ชนิกานต์ สงวนพันธุ์ 
 
-                    เลขที่บัญชี&nbsp;797-2083-636</li>
+                    เลขที่บัญชี&nbsp;694-2-09854-3</li>
             </ul>
             <!-- <label class="radio">
                 <img src="<?= base_url('public') ?>/img/paypalicon.gif" width="25" height="25"  border="0"/> <input type="radio" name="paid">    ชำระเงินผ่าน Paypal 

@@ -27,19 +27,25 @@ footer{
 }
 body{
     background: url('../images/black_bg.png') repeat;
-    font: 14px truemedium;
-    margin: 20px;
+    font: 14px sans-serif;
+    margin: 40px;
+}
+
+h1,h2,h3,h4{
+     font-family: truemedium;
 }
 header{
     position: relative;
     display: block;
-    height: 170px;
+    height: 145px;
+    /* padding-bottom: 10px; */
+    border-bottom: 1px dashed #CECECE;
 }
 .wrapper{
     width: 1200px;
     margin: 0 auto;
     background: #fff;
-    border-radius: 2px;
+    border-radius:10px;
 
 }
 .mini_nevigator{
@@ -58,8 +64,9 @@ header{
 }
 .main_menu ul{
     position: absolute;
-    right: 0;
-    top: 65px;
+    left: 14%;
+    top: 90px;
+
 }
 .main_menu ul li{
     display:block;
@@ -75,8 +82,18 @@ header{
 .logo{
     background: url(../images/logo_white.png) no-repeat;
     height: 150px;
+    width: 150px;
     background-size: 150px;
     margin: 10px;
+    position: absolute;
+    top: -40px;
+    left: 40%;
+}
+.logo a{
+    z-index: 800;
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 .content{
     color: #4d4d4d;
@@ -260,8 +277,7 @@ ul.prod li i{
 }
 ul.prod li a{
     color:#333333;
-    text-shadow:#333333 .01em .01em ;
-    font-weight:bold;
+
 }
 ul.prod-offer li{
     list-style:none;
@@ -276,8 +292,8 @@ ul.prod-offer li a.prod{
     width:200px;
     line-height:18px;
     color:#333333;
-    text-shadow:#333333 .01em .01em ;
-    font-weight:bold;
+
+
 }
 .img-detail{
     text-align: center;
