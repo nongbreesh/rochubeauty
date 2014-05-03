@@ -1,0 +1,108 @@
+body{
+font-family:"Times New Roman", Times, serif;
+font-size:12px;
+}
+#warpper{
+margin-top:10px;
+text-align:center;
+}
+.table1{
+border:0px  solid #CCCCCC; 
+}
+.table1 tr td{
+border:1px  solid #CCCCCC; 
+}
+.table1 tr.hover:hover{
+background:#F5F5F5;
+color:#000000;
+}
+.table1 tr td h1{
+color:#FFFFFF;
+font-size:14px;
+margin:0px;
+padding:0px;
+}
+#submenu a{
+width:100%;
+float:left;
+text-align:left;
+font-size:14px;
+font-weight:boldl;
+color:#009933;
+}
+.textbox1{
+width:250px;
+background:#FFFFCCl;
+border:#FFCC66 1px solid;
+}
+
+
+.MyHTML {
+	border-collapse: separate;
+	border-left: 1px solid #D5D5D5;
+	border-top: 1px solid #D5D5D5;
+	background-color: white;
+}
+.MyHTML th {
+	FONT-WEIGHT: Bold;
+	background-color: buttonface;
+	border-top: 1px solid #FFFFFF;
+	border-left: 1px solid #FFFFFF;
+	border-bottom: 1px solid #BBBBBB;
+	border-right: 1px solid #BBBBBB;
+	padding: 3px;
+}
+.MyHTML tr:hover{
+	background:#FC9;
+}
+.MyHTML th span {
+	font-weight: normal
+}
+.MyHTML td.label {
+	FONT-WEIGHT: Bold;
+	background-color: buttonface;
+	border-top: 1px solid #FFFFFF;
+	border-left: 1px solid #FFFFFF;
+	border-bottom: 1px solid #BBBBBB;
+	border-right: 1px solid #BBBBBB;
+	padding: 3px;
+}
+.MyHTML td {
+	border-bottom: 1px solid #D5D5D5;
+	border-right: 1px solid #D5D5D5;
+	padding: 3px;
+}
+.MyHTML td.head {
+	background-color: buttonface;
+	text-align: center;
+}
+.MyHTML td.rowhead {
+	FONT-WEIGHT: Bold;
+	background-color: buttonface;
+	border-top: 1px solid #FFFFFF;
+	border-left: 1px solid #FFFFFF;
+	border-bottom: 1px solid #BBBBBB;
+	border-right: 1px solid #BBBBBB;
+}
+.MyHTMLcancel td {
+	border-bottom: 0;
+	border-right: 0;
+	padding: 1px;
+}
+.MyHTMLcancel2 td {
+	border-bottom: 0;
+	border-right: 0;
+	padding: 0;
+}
+
+textfield,textarea,select{
+background:#FFF;
+border:1px #A4A4A4 solid;
+}
+a{
+text-decoration:underline;
+color:#000099;
+}
+.pagenav { margin: 5px 0; border-top: 1px solid #EEE; border-bottom: 1px solid #EEE; padding: 3px }
+.pagenav a { text-decoration: none; background-color: #CCFFFF; border: 1px solid #CCC; padding: 0px 2px 0px 2px; }
+.pagenav a:hover { background-color: #FFCCFF; border: 1px solid #CCC; padding: 0px 2px 0px 2px; }

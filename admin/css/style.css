@@ -1,0 +1,61 @@
+a:link{font-family: tahoma;font-size: 12px;font-weight: normal;color: #33517f;text-decoration: none;}
+a:hover{font-family: tahoma;font-size: 12px;font-weight: normal;color: #33517f;text-decoration: none;}
+a:active{font-family: tahoma;font-size: 12px;font-weight: normal;color: #33517f;text-decoration: none;}
+a:visited{font-family: tahoma;font-size: 12px;font-weight: normal;color: #33517f;text-decoration: none;}
+
+a.b:link{font-family:tahoma;font-size:13px;font-weight:bold;color:#33517f;text-decoration:none;}
+a.b:hover{font-family:tahoma;font-size:13px;font-weight:bold;color:#33517f;text-decoration: none;}
+a.b:active{font-family:tahoma;font-size:13px;font-weight:bold;color:#33517f;text-decoration: none;}
+a.b:visited{font-family:tahoma;font-size:13px;font-weight:bold;color:#33517f;text-decoration: none;}
+
+.main_top{background-image:url(../images/bgmenu/bg_main_top.gif);height:25px;border-bottom:#6a9ec3 1px solid;border-left:#6a9ec3 1px solid;border-right:#6a9ec3 1px solid;font-family:tahoma;font-size:13px;font-weight:bold;color:#33517f;}
+.main_menu_normal{padding-left:2px;background-image:url(../images/bgmenu/bg_main_menu_normal.gif);height:26px;font-family:tahoma;font-size:12px;font-weight:normal;color:#33517f;border-right:#dae5ef 1px solid;border-left:#dae5ef 1px solid;border-bottom:#dae5ef 1px solid}
+.main_menu_active{padding-left:2px;background-image:url(../images/bgmenu/bg_main_menu_active3.gif);height:26px;font-family:tahoma;font-size:12px;font-weight:normal;color:#33517f;cursor:hand;border-right:#dae5ef 1px solid;border-left:#dae5ef 1px solid;border-bottom:#dae5ef 1px solid}
+.sun_menu_normal_right{padding-left:5px;background-color:#fefee6;height:25px;font-family:tahoma;font-size:12px;font-weight:normal;color:#6a9ec3;border-right:#dae5ef 1px solid;border-bottom:#dae5ef 1px solid;border-left:#dae5ef 1px solid}
+.sun_menu_active_right{padding-left:5px;background-color:#fdfdfe;height:25px;font-family:tahoma;font-size:12px;font-weight:normal;color:#33517;border-right:#dae5ef 1px solid;border-bottom:#dae5ef 1px solid;border-left:#dae5ef 1px solid;cursor:hand}
+
+#list_head{font-family:Tahoma;font-size:12px;font-weight:bold}
+#list_webboard{font-family:Tahoma;font-size:12px;font-weight:bold}
+#list{font-family:Tahoma;font-size:12px;font-weight:bold}
+#list .header{background-image:url(../images/template01/top_center.gif);height:26px;font-weight:bold;border-bottom:#003399 1px solid;border-left:#6a9ec3 1px solid;}
+#list .headeractive{background-image:url(../images/template01/top_center_active1.gif);height:26px;font-weight:bold;border-bottom:#003399 1px solid;border-left:#6a9ec3 1px solid;}
+#list .header2{background-color:#5c97db;padding-left:10px;height:25px;font-family:Tahuma;font-size:12px;font-weight:bold;}
+#list .left2{background-color:#bacbe9;height:25px;padding-right:10px;font-family:Tahuma;font-size:12px;font-weight:normal; color:#000000;}
+#list .right{background-color:#dee4ef;padding-left:5px;font-family:Tahuma;font-size:12px;font-weight:normal; color:#FF6633;}
+#list .row1{background-color:#f2f6fa;height:23px;font-weight:bold;color:#333333;border-bottom:#6a9ec3 1px solid;border-left:#6a9ec3 1px solid;}
+#list .row2{background-color:#dae7ee;height:23px;font-weight:bold;color:#333333;border-bottom:#6a9ec3 1px solid;border-left:#6a9ec3 1px solid;}
+#list .row3{background-color:#ffe9c5;height:20px;font-weight:bold;color:#333333;border-bottom:#6a9ec3 1px solid;border-left:#6a9ec3 1px solid;}
+#list .row4{background-color:#ffe9c5;height:20px;font-weight:bold;color:#333333;border-bottom:#6a9ec3 1px solid;border-left:#6a9ec3 1px solid;}
+
+.system_button1{ background-image:url(../images/button/bt03-83px.gif);width:83px; height:23px; border-width:0px;color:#000000; font-family:Tahoma;font-size:12px;font-weight:bold;text-align:center;cursor:hand;};
+.system_button2{ background-image:url(../images/button/button_01_1.gif); width:84px; height:21px; border-width:0px;color:navy; font-family:Tahoma;font-size:12px;font-weight:normal;text-align:center;cursor:hand;};
+.system_button3{ background-image:url(../images/button/botton09.gif);width:29px; height:20px; border-width:0px;color:#FFFFFF; font-family:Tahoma;font-size:12px;font-weight:normal;text-align:center;cursor:hand;};
+.myform_myinput_normal{font-family:"Tahoma";font-size:12px;BORDER-LEFT:1PX outset  #000099; BORDER-TOP:1PX SOLID #000099;BORDER-BOTTOM:1PX SOLID #000099;BORDER-RIGHT:1PX SOLID #000099;background-color: #f5fafb;FONT-WEIGHT:NORMAL; TEXT-ALIGN:LEFT; HEIGHT:16PX;color: #000000;}
+.myform_input_center{font-family:"Tahoma";font-size:12px;BORDER:1PX SOLID #acacde; background-color: #f5fafb;FONT-WEIGHT:NORMAL; TEXT-ALIGN:center; HEIGHT:16PX;color: #000000;}
+.myform_myinput_normal_active{font-family:"Tahoma";font-size:12px;BORDER-LEFT:1PX SOLID #FF0000; BORDER-TOP:1PX SOLID #FF0000;BORDER-BOTTOM:1PX SOLID #FF0000;BORDER-RIGHT:1PX SOLID #FF0000;background-color:#FFFFCC;FONT-WEIGHT:NORMAL; TEXT-ALIGN:LEFT; HEIGHT:16PX;color: #000000;}
+.system_multi_select{font-family:"Tahoma"; font-size:12px; color:#000000; background-color:#f5fafb; border-width:1px; border-left-width:1px; border-right-width:1px; border-color:#000000; text-align:left; width:250px; }
+.system_input_select{font-family:"Tahoma"; font-size:12px; color:#52525e; background-color:#f5fafb; border-width:1px; border-left-width:1px; border-right-width:1px; border-color:#000000; height:18px; text-align:left; }
+
+#table01{font-family:Tahoma;font-size:12px;font-weight:bold}
+#table01 .row2{background-color:#dae7ee;height:23px;font-weight:bold;color:#333333;border-bottom:#6a9ec3 1px solid;border-left:#6a9ec3 1px solid;}
+#table01 .row1{background-color:#f2f6fa;height:23px;font-weight:bold;color:#333333;border-bottom:#6a9ec3 1px solid;border-left:#6a9ec3 1px solid;}
+
+#table02{font-family:Tahoma;font-size:12px;font-weight:bold}
+#table02 .row2{background-color:#dae7ee;height:23px;font-weight:bold;color:#333333;border-bottom:#6a9ec3 1px solid;border-left:#6a9ec3 1px solid;}
+#table02 .row1{background-color:#f2f6fa;height:23px;font-weight:bold;color:#333333;border-bottom:#6a9ec3 1px solid;border-left:#6a9ec3 1px solid;}
+.button_style4{background-image:url(http://localhost/reservation/admin/images/bt_60x23.gif); width:60px; height:23px; border-width:0px;color:red;font-family:tahoma;font-size:11px;font-weight:bold;text-align:center;cursor:hand;}
+li{
+list-style-image:url(../images/menu_arrow.gif);
+padding-left:10px;
+}
+.liststyle_menu a{
+font-size:12px;
+}
+.liststyle_menu a:hover{
+color:#FF9933;
+text-decoration:underline;
+}
+
+.pagenav { margin: 5px 0; border-top: 1px solid #EEE; border-bottom: 1px solid #EEE; padding: 3px }
+.pagenav a { text-decoration: none; background-color: #CCFFFF; border: 1px solid #CCC; padding: 0px 2px 0px 2px; }
+.pagenav a:hover { background-color: #FFCCFF; border: 1px solid #CCC; padding: 0px 2px 0px 2px; }
