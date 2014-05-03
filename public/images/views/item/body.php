@@ -1,14 +1,4 @@
 <div class="col-lg-9 col-md-9 shelf">
-    <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=288958441281557&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<div class="fb-share-button" data-href="<?= base_url() ?>item/detail/<?= $id ?>" data-type="button_count" style="float: right;z-index: 800;"></div>
-
     <div class="col-lg-8 col-md-8">
     <div class="img-detail"><img src="<?= base_url('admin/uploads') ?>/<?= $Product_detail->pic ?>" title="<?= $Product_detail->title ?>" alt="<?= $Product_detail->title ?>" /></div> 
     </div>

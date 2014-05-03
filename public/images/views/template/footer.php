@@ -1,9 +1,9 @@
-﻿</section>
+</section>
 <footer>
     <section class="footer">
         <p>ลิขสิทธิ์ ©2013 - 2014 Rochubeauty.com สงวนสิทธิ์ทั้งหมด โทร 086-379-5315 คุณนก Email : s.chanikarn@gmail.com</p>
     </section>
-   <!-- <div class="footer-logo"></div> -->
+    <div class="footer-logo"></div>
 </footer>
 </body>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
@@ -82,23 +82,6 @@
 
 
 </script>
-<!-- Start of StatCounter Code for Default Guide -->
-<script type="text/javascript">
-var sc_project=9781507; 
-var sc_invisible=1; 
-var sc_security="04b06291"; 
-var scJsHost = (("https:" == document.location.protocol) ?
-"https://secure." : "http://www.");
-document.write("<sc"+"ript type='text/javascript' src='" +
-scJsHost+
-"statcounter.com/counter/counter.js'></"+"script>");
-</script>
-<noscript><div class="statcounter"><a title="hit counter"
-href="http://statcounter.com/" target="_blank"><img
-class="statcounter"
-src="http://c.statcounter.com/9781507/0/04b06291/1/"
-alt="hit counter"></a></div></noscript>
-<!-- End of StatCounter Code for Default Guide -->
 </html>
 
 

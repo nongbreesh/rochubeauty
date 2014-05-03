@@ -1,18 +1,9 @@
- <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=288958441281557&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
 
 
 
 
 <div class="col-md-9 col-lg-9 col-sm-9 shelf">
     <div class="col-lg-12 col-md-12 col-sm-12" style="margin-top: -25px;">
-        <section class="hotline"><strong> HOT LINE : 086-379-5315</strong></section>
         <h1>Rochu ครีมพิษงู จำหน่ายครีมบำรุงผิวหน้า ครีมหน้าเด้ง ครีมหน้าขาวใส Syn-Ake</h1>
         <p>
             <img  src="<?php echo base_url('public'); ?>/images/presenter2.jpg"  width="100"   style="float: left; margin: 10px;" /> 
@@ -34,7 +25,6 @@
             <p class="price"><?= number_format($items->price, 2, '.', ',') ?> บาท</p>
             <div class="div_buy_bg"></div>
             <div class="div_buy">
-                   <div class="fb-share-button" data-href="<?= base_url() ?>item/detail/<?= $items->id ?>" data-type="button_count" style="position: absolute;right: 0;top:-20px;z-index: 800;"></div>
                 <p><?= word_limiter($items->wordwrap, 5) ?></p>
                 <a href="javascript:;" onClick="addCart('<?= $items->id ?>');">ซื้อเลย</a> | <a href="<?= base_url('item') ?>/detail/<?= $items->id ?>/<?= $this->_data->checkword($items->title) ?>">ดูเพิ่มเติม</a>
             </div>

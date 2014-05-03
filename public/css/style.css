@@ -32,7 +32,7 @@ body{
 }
 
 h1,h2,h3,h4{
-     font-family: truemedium;
+    font-family: truemedium;
 }
 header{
     position: relative;
@@ -51,7 +51,7 @@ header{
 .mini_nevigator{
     position: absolute;
     right: 15px;
-    top: 22px;
+    top: 10px;
 }
 .mini_nevigator li{
     display:block;
@@ -59,6 +59,21 @@ header{
     margin: 10px;
 }
 .mini_nevigator li a{
+    color: #4d4d4d;
+    font-family: truemedium;
+}
+
+.social{
+    position: absolute;
+    right: 15px;
+    top: 50px;
+}
+.social li{
+    display:block;
+    float: left;
+    margin: 10px;
+}
+.social li a{
     color: #4d4d4d;
     font-family: truemedium;
 }
@@ -117,13 +132,14 @@ header{
     text-align: center;
     padding: 5px;
     overflow-x: hidden;
+    min-height: 320px; 
 }
 .item > .row{
     min-height: 200px;
 }
 .item img{
-
-    max-width: 90%;
+    padding: 5px;
+    // max-width: 90%;
 
 }
 .item h1{
@@ -139,6 +155,7 @@ header{
 .item  p{
     color: #4d4d4d;
     text-align: left;
+    margin-top: 10px;
 }
 .footer{
 
@@ -235,7 +252,7 @@ p.price{
     float:right;
 }
 .topic{
-    background:#333333;
+    background:#585858;
     color:#333333;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -322,7 +339,7 @@ ul.prod-offer li a.prod{
 }
 .tabs-2{
     float:left;
-    width:240px;
+    width:390px;
     min-height:300px;
     padding:10px;
     margin-bottom:20px;
@@ -377,4 +394,19 @@ ul.prod-offer li a.prod{
 }
 .basketzone{
     padding: 10px;
+}
+.hotline{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 34px;
+    font-family: -webkit-pictograph;
+    color: #CC2B2B;
+}
+.tophotline{
+    position: absolute;
+    right: 22px;
+    top: -25px;
+    color: #F05077;
+    font-weight: bold;
+    font-family: -webkit-pictograph;
 }
