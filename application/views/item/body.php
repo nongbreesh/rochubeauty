@@ -1,4 +1,4 @@
-<div class="col-lg-9 col-md-9 shelf">
+﻿<div class="col-lg-9 col-md-9 shelf">
     <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -10,7 +10,7 @@
 <div class="fb-share-button" data-href="<?= base_url() ?>item/detail/<?= $id ?>" data-type="button_count" style="float: right;z-index: 800;"></div>
 
     <div class="col-lg-8 col-md-8">
-    <div class="img-detail"><img src="<?= base_url('admin/uploads') ?>/<?= $Product_detail->pic ?>" title="<?= $Product_detail->title ?>" alt="<?= $Product_detail->title ?>" /></div> 
+    <div class="img-detail"><img src="<?= base_url('public/uploads') ?>/<?= $Product_detail->pic ?>" title="<?= $Product_detail->title ?>" alt="<?= $Product_detail->title ?>" /></div> 
     </div>
     <div class="prod-detail col-lg-4 col-md-4"> 
         <form  method="post" id="form1" >
@@ -42,7 +42,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <h4>ขนาด : <?= $Product_detail->weight ?> ml.</h4>
+                        <h4>ขนาด : <?= $Product_detail->weight ?> ml./g.</h4>
                     </td>
                 </tr>
                 <tr>
@@ -72,7 +72,7 @@
     <div class="tabs-2">
         <h5>สินค้าใกล้เคียง</h5>
         <?php foreach ($ProductRandom_list as $items) : ?>
-            <div class="relate">   <a href="<?= base_url('item') ?>/detail/<?= $items->id ?>"><img title="<?= $items->title ?>" alt="<?= $items->title ?>" src="<?= base_url('admin/uploads') ?>/<?= $items->pic ?>" style="width:73px;" /></a></div>
+            <div class="relate">   <a href="<?= base_url('item') ?>/detail/<?= $items->id ?>"><img title="<?= $items->title ?>" alt="<?= $items->title ?>" src="<?= base_url('public/uploads') ?>/Thumbnails_<?= $items->pic ?>" style="width:73px;" /></a></div>
                 <?php endforeach; ?>
     </div>
 </div>

@@ -17,6 +17,7 @@ class Cart extends CI_Controller {
         $this->load->model('get_data', '_data');
         $this->load->model('get_cost', '_cost');
         $this->load->model('Email', '_email');
+        $this->load->model('update_data', '_updata');
     }
 
     public function index($action = null, $id = null) {
@@ -41,6 +42,11 @@ class Cart extends CI_Controller {
         }
         $this->load->view('cart/index');
         $this->load->view('template/footer');
+        $input['id'] = 0;
+        $input['count'] = 1;
+        $input['ip_addr'] = get_client_ip();
+
+        $this->_updata->update_viewed($input);
     }
 
     public function addcart($id, $qtys = null) {

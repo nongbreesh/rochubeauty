@@ -1,5 +1,4 @@
-<?php
-session_start();
+<?php session_start();
 $_SESSION['chk_load'] = 0;
 ?>
 <!DOCTYPE HTML>

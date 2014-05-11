@@ -14,7 +14,7 @@
         <section class="col-lg-3 col-md-3 item">
             <div class="row">
 
-                <img src="<?= base_url('admin/uploads') ?>/<?= $items->pic ?>" title="<?= $items->title ?>" alt="<?= $items->title ?>"    height="200"/>
+                <img src="<?= base_url('public/uploads') ?>/<?= $items->pic ?>" title="<?= $items->title ?>" alt="<?= $items->title ?>"    height="200"/>
 
 
             </div>

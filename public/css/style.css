@@ -132,7 +132,7 @@ header{
     text-align: center;
     padding: 5px;
     overflow-x: hidden;
-    min-height: 320px; 
+    min-height: 340px; 
 }
 .item > .row{
     min-height: 200px;
@@ -410,3 +410,4 @@ ul.prod-offer li a.prod{
     font-weight: bold;
     font-family: -webkit-pictograph;
 }
+

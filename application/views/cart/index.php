@@ -73,7 +73,7 @@ if (isset($_POST['update'])) {
                         $sumweight += $item['weight'] * $item['qty'];
                         ?>
                         <tr>
-                            <td width="55"><center><img src="<?= base_url('admin/uploads') ?>/<?= $listpic->pic ?>"  style="height:30px;" class="img-rounded"/></center></td>
+                            <td width="55"><center><img src="<?= base_url('public/uploads') ?>/Thumbnails_<?= $listpic->pic ?>"  style="height:30px;" class="img-rounded"/></center></td>
                         <td width="300"><a class="bsk" href="<?= base_url() ?>item/detail/<?= $listpic->id ?>"><?= $item['name']; ?></a></td>
                         <td><?= $item['item_code']; ?></td>
                         <td><?= number_format($item['price'], 2, '.', ','); ?></td>
@@ -206,7 +206,7 @@ if (isset($_POST['update'])) {
                 <li><img src="<?= base_url('public') ?>/img/kbank.jpg" width="25" height="25"  border="0"/>&nbsp;ธนาคาร&nbsp;กสิกรไทย
 
                     สาขา&nbsp;มหาวิทยาลัยเกษตรศาสตร์ บางเขน
-                    
+
                     ประเภท&nbsp;ออมทรัพย์
 
                     ชื่อบัญชี&nbsp;ชนิกานต์ สงวนพันธุ์ 
