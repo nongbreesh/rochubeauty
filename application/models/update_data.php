@@ -93,6 +93,17 @@ class update_data extends CI_Model {
         endif;
     }
 
+    function update_Order($id, $input) {
+
+        $this->db->where('order_id', $id);
+
+        if ($this->db->update('orders', $input)):
+            return true;
+        else:
+            return false;
+        endif;
+    }
+
 }
 
 ?>

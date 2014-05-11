@@ -33,6 +33,14 @@ class Service extends CI_Controller {
         
     }
 
+    public function getitem_order_info() {
+        $id = $this->input->post('id');
+        $data['result'] = $this->order_model->getOrder($id);
+
+        $this->output->set_header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($data);
+    }
+
     public function getitem_order_detail() {
         $id = $this->input->post('id');
         $order = $this->order_model->getOrder($id);
@@ -184,7 +192,6 @@ class Service extends CI_Controller {
 
         if ($this->update_data->delete_Product($id)) {
             $data['status'] = array('message' => 'ลบสำเร็จ', 'type' => 'success');
-         
         } else {
             $data['status'] = array('message' => 'ลบไม่สำเร็จ', 'type' => 'danger');
         }
@@ -229,7 +236,6 @@ class Service extends CI_Controller {
         $data = '';
         if ($this->insert_model->insert_Product($input)) {
             $data['status'] = array('message' => 'เพิ่มรายการสำเร็จ', 'type' => 'success');
-           
         } else {
             $data['status'] = array('message' => 'เพิ่มรายการไม่สำเร็จ', 'type' => 'danger');
         }
@@ -274,10 +280,9 @@ class Service extends CI_Controller {
         );
         $data = '';
         if ($this->update_data->update_Product($id, $input)) {
-            $data['status'] = array('message' => 'แก้ไขการสำเร็จ', 'type' => 'success');
-            
+            $data['status'] = array('message' => 'อัพเดทข้อมูลสำเร็จ', 'type' => 'success');
         } else {
-            $data['status'] = array('message' => 'แก้ไขไม่สำเร็จ', 'type' => 'danger');
+            $data['status'] = array('message' => 'อัพเดทข้อมูลไม่สำเร็จ', 'type' => 'danger');
         }
 
 
@@ -305,6 +310,91 @@ class Service extends CI_Controller {
             $i ++;
         }
         echo $html;
+    }
+
+    function update_payment($id) {
+        $input_reason = $this->input->post('input_reason');
+        $input_ems = $this->input->post('input_ems');
+
+        $input = array(
+            'detail' => $input_reason,
+            'emstrack' => $input_ems,
+            'payment_time' => date('Y-m-d H:i:s'),
+            'is_payment' => 1
+        );
+        $data = '';
+        if ($this->update_data->update_Order($id, $input)) {
+            $data['status'] = array('message' => 'อัพเดทข้อมูลสำเร็จ', 'type' => 'success');
+        } else {
+            $data['status'] = array('message' => 'อัพเดทข้อมูลไม่สำเร็จ', 'type' => 'danger');
+        }
+
+
+        $this->output->set_header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($data);
+    }
+
+    function update_shipping($id) {
+        $input_reason = $this->input->post('input_reason');
+        $input_ems = $this->input->post('input_ems');
+
+        $input = array(
+            'detail' => $input_reason,
+            'emstrack' => $input_ems,
+            'shipping_time' => date('Y-m-d H:i:s'),
+            'is_shipping' => 1
+        );
+        $data = '';
+        if ($this->update_data->update_Order($id, $input)) {
+            $data['status'] = array('message' => 'อัพเดทข้อมูลสำเร็จ', 'type' => 'success');
+        } else {
+            $data['status'] = array('message' => 'อัพเดทข้อมูลไม่สำเร็จ', 'type' => 'danger');
+        }
+
+
+        $this->output->set_header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($data);
+    }
+
+    function update_ordercancel($id) {
+        $input_reason = $this->input->post('input_reason');
+        $input_ems = $this->input->post('input_ems');
+
+        $input = array(
+            'detail' => $input_reason,
+            'emstrack' => $input_ems,
+            'is_active' => 0
+        );
+        $data = '';
+        if ($this->update_data->update_Order($id, $input)) {
+            $data['status'] = array('message' => 'อัพเดทข้อมูลสำเร็จ', 'type' => 'success');
+        } else {
+            $data['status'] = array('message' => 'อัพเดทข้อมูลไม่สำเร็จ', 'type' => 'danger');
+        }
+
+
+        $this->output->set_header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($data);
+    }
+
+    function update_orderupdate($id) {
+        $input_reason = $this->input->post('input_reason');
+        $input_ems = $this->input->post('input_ems');
+
+        $input = array(
+            'detail' => $input_reason,
+            'emstrack' => $input_ems
+        );
+        $data = '';
+        if ($this->update_data->update_Order($id, $input)) {
+            $data['status'] = array('message' => 'อัพเดทข้อมูลสำเร็จ', 'type' => 'success');
+        } else {
+            $data['status'] = array('message' => 'อัพเดทข้อมูลไม่สำเร็จ', 'type' => 'danger');
+        }
+
+
+        $this->output->set_header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($data);
     }
 
 }

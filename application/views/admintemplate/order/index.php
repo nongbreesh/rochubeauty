@@ -41,7 +41,8 @@
                                 <th>Status</th>
                                 <th>Tools</th>
                             </tr>
-                            <?php $i = 1;
+                            <?php
+                            $i = 1;
                             foreach ($order_list as $row):
                                 ?>
 
@@ -72,7 +73,8 @@
                                         </div>
                                     </td>
                                 </tr> 
-                                <?php $i++;
+                                <?php
+                                $i++;
                             endforeach;
                             ?>
 
@@ -108,6 +110,27 @@
 
 
                     </div><!-- /.col -->
+                    <form id="form_update_status">
+                        <input type="hidden" name="item_id" id="item_id">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="input_reason">REASON</label>
+                                <input name="input_reason" id="input_reason" type="text" class="form-control" >
+                            </div>
+                            <div class="form-group">
+                                <label for="input_ems">EMS TRACKING</label>
+                                <input name="input_ems" id="input_ems"   type="text" class="form-control " >
+                            </div>
+
+                            <label>
+                                <input type="button" name="payment" id="btn_payment" class="btn btn-default" value="ยืนยันการชำระเงิน" >
+                                <input type="button" name="shipping" id="btn_shipping" class="btn btn-default" value="ยืนยันการสั่งซื้อ/จัดส่ง" >
+                            </label>
+                            <label></label>
+                            <input type="button" name="cancel" id="btn_cancel"  class="btn btn-danger" value="ยกเลิกรายการสั่งซื้อ" >
+                            <input type="button" name="update" id="btn_update" class="btn btn-default" value="อัพเดทข้อมูล" >
+                        </div>
+                    </form>
                 </div><!-- /.row -->
             </div>
 
@@ -124,17 +147,112 @@
 
 <script>
     $(document).ready(function() {
+        $("#btn_payment").click(function() {
+            if (confirm('Are you sure?')) {
 
+                var item_id = $("#item_id").val();
+
+                var $btn = $(this);
+                $btn.button('loading');
+                $.ajax({
+                    url: "<?php echo base_url(); ?>" + "index.php/service/update_payment/" + item_id,
+                    type: "POST",
+                    data: $("#form_update_status").serialize(),
+                    dataType: "json",
+                    success: function(data) {
+                        $.growl(data.status.message, {type: data.status.type}); //danger , info , warning
+                        load_order_detail(item_id);
+
+                        $btn.button('reset');
+
+                    },
+                    error: function(XMLHttpRequest) {
+                        $.growl(XMLHttpRequest.status, {type: 'danger'}); //danger , info , warning
+                        $btn.button('reset');
+                    }
+                });
+            }
+        });
+        $("#btn_shipping").click(function() {
+            if (confirm('Are you sure?')) {
+                var item_id = $("#item_id").val();
+                var $btn = $(this);
+                $btn.button('loading');
+                $.ajax({
+                    url: "<?php echo base_url(); ?>" + "index.php/service/update_shipping/" + item_id,
+                    type: "POST",
+                    data: $("#form_update_status").serialize(),
+                    dataType: "json",
+                    success: function(data) {
+                        $.growl(data.status.message, {type: data.status.type}); //danger , info , warning
+                        load_order_detail(item_id);
+                        $btn.button('reset');
+
+                    },
+                    error: function(XMLHttpRequest) {
+                        $.growl(XMLHttpRequest.status, {type: 'danger'}); //danger , info , warning
+                        $btn.button('reset');
+                    }
+                });
+            }
+        });
+        $("#btn_cancel").click(function() {
+            var item_id = $("#item_id").val();
+            if (confirm('Are you sure?')) {
+                var $btn = $(this);
+                $btn.button('loading');
+                $.ajax({
+                    url: "<?php echo base_url(); ?>" + "index.php/service/update_ordercancel/" + item_id,
+                    type: "POST",
+                    data: $("#form_update_status").serialize(),
+                    dataType: "json",
+                    success: function(data) {
+                        $.growl(data.status.message, {type: data.status.type}); //danger , info , warning
+                        load_order_detail(item_id);
+                        $btn.button('reset');
+                    },
+                    error: function(XMLHttpRequest) {
+                        $.growl(XMLHttpRequest.status, {type: 'danger'}); //danger , info , warning
+                        $btn.button('reset');
+                    }
+                });
+            }
+        });
+        $("#btn_update").click(function() {
+            var item_id = $("#item_id").val();
+            if (confirm('Are you sure?')) {
+                var $btn = $(this);
+                $btn.button('loading');
+                $.ajax({
+                    url: "<?php echo base_url(); ?>" + "index.php/service/update_orderupdate/" + item_id,
+                    type: "POST",
+                    data: $("#form_update_status").serialize(),
+                    dataType: "json",
+                    success: function(data) {
+                        $.growl(data.status.message, {type: data.status.type}); //danger , info , warning
+
+                        load_order_detail(item_id);
+                        $btn.button('reset');
+                    },
+                    error: function(XMLHttpRequest) {
+                        $.growl(XMLHttpRequest.status, {type: 'danger'}); //danger , info , warning
+                        $btn.button('reset');
+                    }
+                });
+            }
+        });
     });
 
 
     function load_order_detail(id) {
+        $("#item_id").val(id);
         $.ajax({
             type: "POST",
             url: "<?php echo base_url(); ?>" + "service/getitem_order_detail",
             data: {'id': id},
             dataType: "html",
             success: function(data) {
+
                 $('#order_detail_dection').html(data);
                 $('#order-modal').modal('show');
             },
@@ -142,6 +260,25 @@
                 console.log(XMLHttpRequest.status);
             }
         });
+
+
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>" + "service/getitem_order_info",
+            data: {'id': id},
+            dataType: "json",
+            success: function(data) {
+                console.log(data);
+                $('#input_reason').val(data.result.detail);
+                $('#input_ems').val(data.result.emstrack);
+            },
+            error: function(XMLHttpRequest) {
+                console.log(XMLHttpRequest.status);
+            }
+        });
+
+
+
     }
 
     function removedata(id) {

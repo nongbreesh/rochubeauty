@@ -68,6 +68,10 @@
                 <li <?= is_menu_active($menu, "task_pending"); ?>>
                     <a href="<?= base_url('administrator') ?>/task_pending">
                         <i class="fa  fa-laptop"></i> <span>Task pending</span> 
+
+                        <?php if (count($orderList_wait_shipping) > 0): ?>
+                            <small class="badge pull-right bg-yellow"><?= count($orderList_wait_shipping) ?></small>
+                        <?php endif; ?>
                     </a>
                 </li>
                 <li <?= is_menu_active($menu, "summary_report"); ?>>
@@ -88,18 +92,18 @@
 
 
 
-               <!-- <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-cogs"></i>
-                        <span>Content manager</span>
-                        <i class="fa  pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> Article list</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> Add Article</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> Home Article</a></li>
-                    </ul>
-                </li>-->
+                <!-- <li class="treeview">
+                     <a href="#">
+                         <i class="fa fa-cogs"></i>
+                         <span>Content manager</span>
+                         <i class="fa  pull-right"></i>
+                     </a>
+                     <ul class="treeview-menu">
+                         <li><a href="#"><i class="fa fa-angle-double-right"></i> Article list</a></li>
+                         <li><a href="#"><i class="fa fa-angle-double-right"></i> Add Article</a></li>
+                         <li><a href="#"><i class="fa fa-angle-double-right"></i> Home Article</a></li>
+                     </ul>
+                 </li>-->
             </ul>
         </section>
         <!-- /.sidebar -->

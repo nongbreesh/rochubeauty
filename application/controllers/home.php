@@ -46,7 +46,7 @@ class Home extends CI_Controller {
         $data['mTitle'] = $this->mTitle;
         $data['mDesc'] = $this->mDesc;
         $data['mKeyword'] = $this->mKeyword;
-        $data['ProductHit_list'] = $this->_data->getProductHit(12);
+        $data['ProductHit_list'] = $this->_data->getProductHit(100);
         $data['ProductNew_list'] = $this->_data->getProductNew();
         $data['ProductOffer_list'] = $this->_data->getProductOffer();
         $data['Product_list'] = $this->_data->getProduct();

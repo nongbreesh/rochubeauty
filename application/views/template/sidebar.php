@@ -58,7 +58,7 @@
         <ul class="prod-offer">
 
             <?php foreach ($ProductOffer_list as $items) : ?>
-                <li><a href="<?= base_url('item') ?>/detail/<?= $items->id ?>"><div class="offerimg"><center><img title="<?= $items->title ?>" alt="<?= $items->title ?>" src="<?= base_url('admin/uploads') ?>/<?= $items->pic ?>" style="width:50px;height: auto; " /></center></div></a> <a href="<?= base_url('item') ?>/detail/<?= $items->id ?>" class="prod"><?= $items->title ?></a><a href="#" class="prod"></a></li>
+                <li><a href="<?= base_url('item') ?>/detail/<?= $items->id ?>"><div class="offerimg"><center><img title="<?= $items->title ?>" alt="<?= $items->title ?>" src="<?= base_url('public/uploads') ?>/<?= $items->pic ?>" style="width:50px;height: auto; " /></center></div></a> <a href="<?= base_url('item') ?>/detail/<?= $items->id ?>" class="prod"><?= $items->title ?></a><a href="#" class="prod"></a></li>
             <?php endforeach; ?>
         </ul>  
 

@@ -110,7 +110,7 @@ class get_data extends CI_Model {
     }
 
     function getProducts() {
-        $query = $this->db->query("select a.*,b.* from   items  a left join categories b on a.categories = b.categories_id  where a.isuse = 0");
+        $query = $this->db->query("select a.*,b.* from   items  a left join categories b on a.categories = b.categories_id  where a.isuse = 0 order by id asc");
         return $query->result();
     }
 

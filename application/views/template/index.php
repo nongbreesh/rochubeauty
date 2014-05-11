@@ -24,7 +24,7 @@
     <div class="topic col-lg-12 col-md-12 col-sm-12"><h1>สินค้าพรีเมี่ยม // กำลังได้รับความนิยมและขายดีที่สุด</h1></div>
     <?php foreach ($ProductHit_list as $items) : ?>
         <section class="col-lg-3 col-md-3 item">
-            <div class="row">
+            <div class="row" style="padding: 10px;">
 
                 <img src="<?= base_url('public/uploads') ?>/<?= $items->pic ?>" title="<?= $items->title ?>" alt="<?= $items->title ?>"    height="200"/>
 

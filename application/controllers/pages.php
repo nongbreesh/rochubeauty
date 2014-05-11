@@ -29,7 +29,7 @@ class Pages extends CI_Controller {
         $data['ProductNew_list'] = $this->_data->getProductNew();
         $data['ProductOffer_list'] = $this->_data->getProductOffer();
         $data['Product_list'] = $this->_data->getProduct();
-        $data['Cate_list'] = $this->_data->getCate();
+        $data['Cate_list'] = $this->_data->getCategories();
         $data['Menutop'] = $this->_data->getMenutop();
         $data['Content'] = $this->_data->getContent($id);
         $data['Sidebar'] = $this->_data->getSidebar();
@@ -56,7 +56,7 @@ class Pages extends CI_Controller {
         $data['ProductNew_list'] = $this->_data->getProductNew();
         $data['ProductOffer_list'] = $this->_data->getProductOffer();
         $data['Product_list'] = $this->_data->getProduct();
-        $data['Cate_list'] = $this->_data->getCate();
+        $data['Cate_list'] = $this->_data->getCategories();
         $data['Menutop'] = $this->_data->getMenutop();
         $data['Sidebar'] = $this->_data->getSidebar();
         $this->load->view('template/head', $data);
@@ -143,7 +143,7 @@ class Pages extends CI_Controller {
         $data['ProductNew_list'] = $this->_data->getProductNew();
         $data['ProductOffer_list'] = $this->_data->getProductOffer();
         $data['Product_list'] = $this->_data->getProduct();
-        $data['Cate_list'] = $this->_data->getCate();
+        $data['Cate_list'] = $this->_data->getCategories();
         $data['Menutop'] = $this->_data->getMenutop();
         $data['Sidebar'] = $this->_data->getSidebar();
         $this->load->view('template/head', $data);
@@ -192,7 +192,7 @@ class Pages extends CI_Controller {
         $data['ProductNew_list'] = $this->_data->getProductNew();
         $data['ProductOffer_list'] = $this->_data->getProductOffer();
         $data['Product_list'] = $this->_data->getProduct();
-        $data['Cate_list'] = $this->_data->getCate();
+        $data['Cate_list'] = $this->_data->getCategories();
         $data['Menutop'] = $this->_data->getMenutop();
         $data['Content'] = $this->_data->getContent(14);
         $data['Sidebar'] = $this->_data->getSidebar();

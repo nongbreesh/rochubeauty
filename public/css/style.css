@@ -131,7 +131,7 @@ header{
     vertical-align: bottom;
     text-align: center;
     padding: 5px;
-    overflow-x: hidden;
+    overflow: hidden;
     min-height: 340px; 
 }
 .item > .row{
@@ -143,14 +143,15 @@ header{
 
 }
 .item h1{
-    font-size: 14px !important;
+    font-size: 12px !important;
+    font-family: sans-serif;
     margin: 0px;
     padding: 10px;
     color: #FFFFFF;
     text-align: left;
     background: #A5396D;
-    background-image: linear-gradient(to bottom, #F769F1, #A5396D);
-    border-radius: 0px 0px 5px 5px;
+    /* background-image: linear-gradient(to bottom, #F769F1, #A5396D); */
+    /* border-radius: 0px 0px 5px 5px; */
 }
 .item  p{
     color: #4d4d4d;
@@ -411,3 +412,6 @@ ul.prod-offer li a.prod{
     font-family: -webkit-pictograph;
 }
 
+h4{
+    font-size: 14px;
+}

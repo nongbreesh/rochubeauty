@@ -12,7 +12,7 @@
     <div class="topic"><h1>สินค้าทั้งหมด</h1></div>
     <?php foreach ($Products as $items) : ?>
         <section class="col-lg-3 col-md-3 item">
-            <div class="row">
+            <div class="row"  style="padding: 10px;">
 
                 <img src="<?= base_url('public/uploads') ?>/<?= $items->pic ?>" title="<?= $items->title ?>" alt="<?= $items->title ?>"    height="200"/>
 
