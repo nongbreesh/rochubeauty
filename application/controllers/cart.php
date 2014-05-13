@@ -50,6 +50,11 @@ class Cart extends CI_Controller {
     }
 
     public function addcart($id, $qtys = null) {
+        $input['id'] = $id;
+        $input['count'] = 1;
+        $input['ip_addr'] = get_client_ip();
+        $this->_updata->update_cart_add($input);
+
         if ($qtys != null) {
             $data['qtys'] = $qtys;
         } else {
@@ -92,6 +97,7 @@ class Cart extends CI_Controller {
                 foreach ($_SESSION['SHOPPING_CART'] as $itemNumber => $item) {
                     $input['order_id'] = $order_id;
                     $input['qty'] = $item['qty'];
+                    $input['weight'] = $item['weight'];
                     $input['price'] = $item['price'];
                     $input['product_id'] = $item['item_id'];
                     $this->insert_model->insert_Orderdetail($input);

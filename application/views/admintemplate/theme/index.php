@@ -33,7 +33,7 @@
                     <div class="icon">
                         <i class="ion ion-bag"></i>
                     </div>
-                    <a href="#" class="small-box-footer">
+                    <a href="<?= base_url() ?>administrator/order" class="small-box-footer">
                         More info <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
@@ -52,7 +52,7 @@
                     <div class="icon">
                         <i class="ion ion-android-mail"></i>
                     </div>
-                    <a href="#" class="small-box-footer">
+                    <a href="<?= base_url() ?>administrator/message" class="small-box-footer">
                         More info <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
@@ -62,20 +62,39 @@
                 <div class="small-box bg-yellow">
                     <div class="inner">
                         <h3>
-                            <?= number_format(count($users)) ?>
+                            <?= $count_itemclicked->viewed_count ?>
                         </h3>
                         <p>
-                            User Registrations
+                            Daily items click
                         </p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-person-add"></i>
+                        <i class="ion ion-android-data"></i>
                     </div>
-                    <a href="#" class="small-box-footer">
+                    <a href="<?= base_url() ?>administrator/daily_items_click" class="small-box-footer">
                         More info <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div><!-- ./col -->
+            <!-- <div class="col-lg-3 col-xs-6">
+                
+                 <div class="small-box bg-yellow">
+                     <div class="inner">
+                         <h3>
+            <?= number_format(count($users)) ?>
+                         </h3>
+                         <p>
+                             User Registrations
+                         </p>
+                     </div>
+                     <div class="icon">
+                         <i class="ion ion-person-add"></i>
+                     </div>
+                     <a href="#" class="small-box-footer">
+                         More info <i class="fa fa-arrow-circle-right"></i>
+                     </a>
+                 </div>
+             </div>--><!-- ./col -->
             <div class="col-lg-3 col-xs-6">
                 <!-- small box -->
                 <div class="small-box bg-red">
@@ -95,6 +114,7 @@
                     </a>
                 </div>
             </div><!-- ./col -->
+
         </div><!-- /.row -->
 
         <!-- top row -->
@@ -114,7 +134,7 @@
                     <div class="box-header">
                         <!-- tools box -->
                         <div class="pull-right box-tools">
-                            <button class="btn btn-danger btn-sm refresh-btn" data-toggle="tooltip" title="Reload"><i class="fa fa-refresh"></i></button>
+                            <!--<button class="btn btn-danger btn-sm refresh-btn" data-toggle="tooltip" title="Reload"><i class="fa fa-refresh"></i></button>-->
                             <button class="btn btn-danger btn-sm" data-widget='collapse' data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
                             <button class="btn btn-danger btn-sm" data-widget='remove' data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
                         </div><!-- /. tools -->
@@ -375,7 +395,7 @@
                     success: function(data) {
                         $.growl(data.status.message, {type: data.status.type}); //danger , info , warning
 
-                       load_order_detail(item_id);
+                        load_order_detail(item_id);
                         $btn.button('reset');
                     },
                     error: function(XMLHttpRequest) {

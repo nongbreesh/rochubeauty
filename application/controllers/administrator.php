@@ -30,6 +30,7 @@ class Administrator extends CI_Controller {
 
         $data["menu"] = "home";
         $data['count_viewed'] = $this->get_data->getCountView_today();
+        $data['count_itemclicked'] = $this->get_data->getCountItemclick_today();
         $data["order_list"] = $this->order_model->getOrderList();
         $data["order"] = $this->order_model->get_new_orderList();
         $data["users"] = $this->user_model->get_all_user();
@@ -178,7 +179,7 @@ class Administrator extends CI_Controller {
         }
         $data["menu"] = "items";
         $data["categody_list"] = $this->get_data->getCate();
-          $data["product_list"] = $this->get_data->getProducts();
+        $data["product_list"] = $this->get_data->getProducts();
         $data["order_list"] = $this->order_model->getOrderList();
         $data["order"] = $this->order_model->get_new_orderList();
         $data["users"] = $this->user_model->get_all_user();
@@ -202,7 +203,7 @@ class Administrator extends CI_Controller {
         }
         $data["menu"] = "items";
         $data["categody_list"] = $this->get_data->getCate();
-      
+
 
         $data["order_list"] = $this->order_model->getOrderList();
         $data["order"] = $this->order_model->get_new_orderList();
@@ -216,6 +217,31 @@ class Administrator extends CI_Controller {
         $this->load->view('admintemplate/theme/head', $data);
         $this->load->view('admintemplate/theme/sidebar', $data);
         $this->load->view('admintemplate/recycle/index', $data);
+        $this->load->view('admintemplate/theme/footer', $data);
+    }
+
+    function daily_items_click() {
+        if ($this->user_model->is_login()) {
+            $data['account'] = $this->user_model->get_account_cookie();
+        } else {
+            redirect('login', 'refresh');
+        }
+        $data["menu"] = "home";
+        $data["categody_list"] = $this->get_data->getCate();
+
+        $data["itemclick_detail"] = $this->get_data->getCountItemclick_detail();
+        $data["order_list"] = $this->order_model->getOrderList();
+        $data["order"] = $this->order_model->get_new_orderList();
+        $data["users"] = $this->user_model->get_all_user();
+        $data["contact"] = $this->get_data->get_contact_detail();
+        $data["contact_all"] = $this->get_data->get_contact_detail_all();
+        $data["payment"] = $this->order_model->get_payment();
+        $data["orderList_wait_shipping"] = $this->order_model->get_orderList_wait_shipping();
+        $data["get_order_summary_total"] = $this->order_model->get_order_summary_total();
+        $this->update_data->update_message_read();
+        $this->load->view('admintemplate/theme/head', $data);
+        $this->load->view('admintemplate/theme/sidebar', $data);
+        $this->load->view('admintemplate/daily_items_click/index', $data);
         $this->load->view('admintemplate/theme/footer', $data);
     }
 

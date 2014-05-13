@@ -1,4 +1,4 @@
-﻿</section>
+โ﻿</section>
 <footer>
     <section class="footer">
         <p>ลิขสิทธิ์ ©2013 - 2014 Rochubeauty.com สงวนสิทธิ์ทั้งหมด โทร 086-379-5315 คุณนก Email : s.chanikarn@gmail.com</p>

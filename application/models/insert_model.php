@@ -144,6 +144,15 @@ class Insert_model extends CI_Model {
         endif;
     }
 
+    function insert_Category($input) {
+
+        if ($this->db->insert('categories', $input)):
+            return true;
+        else:
+            return false;
+        endif;
+    }
+
 }
 
 ?>

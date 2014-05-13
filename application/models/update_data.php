@@ -2,6 +2,21 @@
 
 class update_data extends CI_Model {
 
+    function update_cart_add($input) {
+        $value = array(
+            'id' => $input['id'],
+            'count' => $input['count'],
+            'ip_addr' => $input['ip_addr']
+        );
+
+
+        if ($this->db->insert('cart_history', $value)):
+            return true;
+        else:
+            return false;
+        endif;
+    }
+
     function update_viewed($input) {
 
         $value = array(
@@ -87,6 +102,28 @@ class update_data extends CI_Model {
         $this->db->where('id', $id);
 
         if ($this->db->delete('items')):
+            return true;
+        else:
+            return false;
+        endif;
+    }
+
+    function update_category($id, $input) {
+
+        $this->db->where('categories_id', $id);
+
+        if ($this->db->update('categories', $input)):
+            return true;
+        else:
+            return false;
+        endif;
+    }
+
+    function delete_category($id) {
+
+        $this->db->where('categories_id', $id);
+
+        if ($this->db->delete('categories')):
             return true;
         else:
             return false;

@@ -160,8 +160,8 @@ class Service extends CI_Controller {
             $new_images = "Thumbnails_" . $_FILES["input_image"]["name"];
             copy($_FILES["input_image"]["tmp_name"], "./public/uploads/" . $_FILES["input_image"]["name"]);
             $width = 150; //*** Fix Width & Heigh (Autu caculate) ***//
-            $size = GetimageSize($images);
-            $height = round($width * $size[1] / $size[0]);
+            $weight = GetimageSize($images);
+            $height = round($width * $weight[1] / $weight[0]);
             $images_orig = ImageCreateFromJPEG($images);
             $photoX = ImagesX($images_orig);
             $photoY = ImagesY($images_orig);
@@ -187,6 +187,12 @@ class Service extends CI_Controller {
         echo json_encode($data);
     }
 
+    function get_category() {
+        $data['result'] = $this->get_data->getCategoriesddl();
+        $this->output->set_header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($data);
+    }
+
     function delete_product() {
         $id = ($this->input->post('id') != false ? $this->input->post('id') : '');
 
@@ -200,13 +206,95 @@ class Service extends CI_Controller {
         echo json_encode($data);
     }
 
+    function delete_cate() {
+        $id = ($this->input->post('id') != false ? $this->input->post('id') : '');
+
+        if ($this->update_data->delete_category($id)) {
+            $data['status'] = array('message' => 'ลบสำเร็จ', 'type' => 'success');
+        } else {
+            $data['status'] = array('message' => 'ลบไม่สำเร็จ', 'type' => 'danger');
+        }
+
+        $this->output->set_header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($data);
+    }
+
+    function update_cate($id) {
+        $inputedit_catename = $this->input->post('inputedit_catename');
+        $inputedit_cateparent = $this->input->post('inputedit_cateparent');
+        $input = array(
+            'categories_name' => $inputedit_catename,
+            'parent_id' => $inputedit_cateparent,
+        );
+        $data = '';
+        if ($this->update_data->update_category($id, $input)) {
+            $data['status'] = array('message' => 'อัพเดทข้อมูลสำเร็จ', 'type' => 'success');
+        } else {
+            $data['status'] = array('message' => 'อัพเดทข้อมูลไม่สำเร็จ', 'type' => 'danger');
+        }
+
+
+        $this->output->set_header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($data);
+    }
+
+    function add_category() {
+        $input_catename = $this->input->post('input_catename');
+        $input_cateparent = $this->input->post('input_cateparent');
+        $input = array(
+            'categories_name' => $input_catename,
+            'parent_id' => $input_cateparent
+        );
+
+        $data = '';
+        if ($this->insert_model->insert_Category($input)) {
+            $data['status'] = array('message' => 'เพิ่มรายการสำเร็จ', 'type' => 'success');
+        } else {
+            $data['status'] = array('message' => 'เพิ่มรายการไม่สำเร็จ', 'type' => 'danger');
+        }
+
+
+        $this->output->set_header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($data);
+    }
+
+    function load_cate_detail() {
+        $id = $this->input->post('id');
+        $data['result'] = $this->get_data->getCateName($id);
+        $this->output->set_header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($data);
+    }
+
+    function load_cate_list() {
+        $result = $this->get_data->getCategories();
+        $i = 1;
+        $html = '';
+        foreach ($result as $row) {
+
+            if (!empty($row->parent_id)) {
+                $parent = $this->get_data->getCateName($row->parent_id)->categories_name;
+            } else {
+                $parent = "-";
+            }
+            $html .= '<tr>';
+            $html .= '<td>' . $i . '</td>';
+            $html .= '<td>' . $row->categories_name . '<br>';
+            $html .= '<td>' . $parent . '<br>';
+            $html .= '<div class = "tools"><span class = "edit"><a href = "javascript:;" onclick="editdata(' . $row->categories_id . ');">Edit</a> | </span><span class = "delete"><a class = "delete-tag" href = "javascript:;" onclick="removedata(' . $row->categories_id . ');">Delete</a></div></td>';
+            $html .= '<td>' . $this->get_data->getCateused($row->categories_id) . '</td>';
+            $html .= '</tr>';
+            $i++;
+        }
+        echo $html;
+    }
+
     function add_product() {
         $input_item_code = $this->input->post('input_item_code');
         $input_categories = $this->input->post('input_categories');
         $input_ishit = $this->input->post('input_ishit');
         $input_isoffer = $this->input->post('input_isoffer');
         $input_title = $this->input->post('input_title');
-        $input_size = $this->input->post('input_size');
+        $input_weight = $this->input->post('input_weight');
         $input_amount = $this->input->post('input_amount');
         $input_price = $this->input->post('input_price');
         $input_pricepro = $this->input->post('input_pricepro');
@@ -222,7 +310,7 @@ class Service extends CI_Controller {
             'ishit' => booltoint($input_ishit),
             'isoffer' => booltoint($input_isoffer),
             'title' => $input_title,
-            'size' => $input_size,
+            'weight' => $input_weight,
             'amount' => $input_amount,
             'price' => $input_price,
             'pricepro' => $input_pricepro,
@@ -251,7 +339,7 @@ class Service extends CI_Controller {
         $input_ishit = $this->input->post('input_ishit');
         $input_isoffer = $this->input->post('input_isoffer');
         $input_title = $this->input->post('input_title');
-        $input_size = $this->input->post('input_size');
+        $input_weight = $this->input->post('input_weight');
         $input_amount = $this->input->post('input_amount');
         $input_price = $this->input->post('input_price');
         $input_pricepro = $this->input->post('input_pricepro');
@@ -267,7 +355,7 @@ class Service extends CI_Controller {
             'ishit' => booltoint($input_ishit),
             'isoffer' => booltoint($input_isoffer),
             'title' => $input_title,
-            'size' => $input_size,
+            'weight' => $input_weight,
             'amount' => $input_amount,
             'price' => $input_price,
             'pricepro' => $input_pricepro,
@@ -312,6 +400,82 @@ class Service extends CI_Controller {
         echo $html;
     }
 
+    function load_payment_list() {
+
+        $result = $this->order_model->get_orderList_wait_shipping();
+        header('Content-Type: text/html; charset=utf-8');
+        $html = '';
+        $i = 1;
+        $totalprice = 0;
+        foreach ($result as $row) {
+            $sumprice = 0;
+            foreach ($this->order_model->get_order_summary_detail($row->order_id) as $item) {
+                $txtqty = $item->qty;
+                $pricepro = $item->pricepro;
+                $pricepro3 = $item->pricepro3;
+                $pricepro6 = $item->pricepro6;
+                $pricepro12 = $item->pricepro12;
+                if ($pricepro != 0) {
+                    if ($txtqty < 3) {
+                        $txtprice = $pricepro;
+                    } elseif ($txtqty < 6) {
+                        if ($pricepro3 == 0) {
+                            $txtprice = $pricepro;
+                        } else {
+                            $txtprice = $pricepro3;
+                        }
+                    } elseif ($txtqty < 12) {
+                        if ($pricepro6 == 0) {
+                            $txtprice = $pricepro;
+                        } else {
+                            $txtprice = $pricepro6;
+                        }
+                    } else {
+
+                        if ($pricepro12 == 0) {
+                            $txtprice = $pricepro;
+                        } else {
+                            $txtprice = $pricepro12;
+                        }
+                    }
+                } else {
+                    $txtprice = $price;
+                }
+                $sumprice = $sumprice + $txtprice * $txtqty;
+            }
+
+            foreach ($this->order_model->get_order_summary_list($row->order_id) as $item) {
+                $order = $item->title . "<b>(" . $item->qty . ")</b></BR>";
+            }
+
+            $html .= '<tr>';
+            $html .= '<td><a href="javascript:;" onclick="load_order_detail(' . $row->order_id . ');">110520141842</a></td>';
+            $html .= '<td>' . $row->order_id . '</td>';
+            $html .= '<td>' . $row->orders_address . ' , ' . $row->orders_providename . ' , ' . $row->orders_zipcode . '</td>';
+            $html .= '<td>' . $order . '</td>';
+            $html .= '<td>' . number_format($sumprice, 2, '.', ',') . '</td>';
+
+            $html .= '<td>' . $row->detail . '</td>';
+            $html .= '<td><input type = "submit" class = "btn btn-primary" name = "shipping' . $row->order_id . '" id = "shipping' . $row->order_id . '" value = "ยืนยันการจัดส่ง" onclick = "shipping(' . $row->order_id . ')"></td>';
+
+
+
+            $html .= '</tr>';
+
+
+
+
+
+
+
+
+
+
+            $i ++;
+        }
+        echo $html;
+    }
+
     function update_payment($id) {
         $input_reason = $this->input->post('input_reason');
         $input_ems = $this->input->post('input_ems');
@@ -341,6 +505,25 @@ class Service extends CI_Controller {
         $input = array(
             'detail' => $input_reason,
             'emstrack' => $input_ems,
+            'shipping_time' => date('Y-m-d H:i:s'),
+            'is_shipping' => 1
+        );
+        $data = '';
+        if ($this->update_data->update_Order($id, $input)) {
+            $data['status'] = array('message' => 'อัพเดทข้อมูลสำเร็จ', 'type' => 'success');
+        } else {
+            $data['status'] = array('message' => 'อัพเดทข้อมูลไม่สำเร็จ', 'type' => 'danger');
+        }
+
+
+        $this->output->set_header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($data);
+    }
+
+    function update_shipping_shortcut() {
+
+        $id = $this->input->post('id');
+        $input = array(
             'shipping_time' => date('Y-m-d H:i:s'),
             'is_shipping' => 1
         );

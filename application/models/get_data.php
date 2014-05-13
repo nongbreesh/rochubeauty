@@ -9,6 +9,20 @@ class get_data extends CI_Model {
         return $query->row();
     }
 
+    function getCountItemclick_today() {
+
+        //$query = $this->db->query("select count(distinct(ip_addr)) as viewed_count from view_history where time_stamp >= NOW() - INTERVAL 1 DAY ");
+        $query = $this->db->query("SELECT count(ip_addr)  as viewed_count FROM cart_history WHERE TO_DAYS(time_stamp) = TO_DAYS(now())");
+        return $query->row();
+    }
+
+    function getCountItemclick_detail() {
+
+        //$query = $this->db->query("select count(distinct(ip_addr)) as viewed_count from view_history where time_stamp >= NOW() - INTERVAL 1 DAY ");
+        $query = $this->db->query("SELECT a.*,b.*,c.*,a.time_stamp as clicktime  FROM cart_history a left join items b on a.id = b.id left join categories c on b.categories = c.categories_id where time_stamp <= NOW() AND time_stamp >= DATE_SUB(time_stamp , INTERVAL 7 DAY) order by time_stamp desc");
+        return $query->result();
+    }
+
     function getCateused($id) {
         $query = $this->db->query("select a.* from   items  a left join categories b on a.categories = b.categories_id  where b.categories_id = " . $id);
 
@@ -216,6 +230,12 @@ class get_data extends CI_Model {
 
     function getCategories() {
         $this->db->select('*');
+        $query = $this->db->get('categories');
+        return $query->result();
+    }
+
+    function getCategoriesddl() {
+        $this->db->select('categories_id as val1 , categories_name as val2 ');
         $query = $this->db->get('categories');
         return $query->result();
     }

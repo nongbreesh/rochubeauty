@@ -35,7 +35,7 @@ if ($_SESSION['chk_load'] > 0 or ! isset($_SESSION['SHOPPING_CART'])) {
 <body>";
     $message_cust .= ' <b>ORDER ID : #' . $order_id . '</b></BR>
    <table width="100%" class="display_basket" cellpadding="0" cellspacing="0">
-							<tr >
+							<tr>
 							  <td style="padding:2px; background:#333333;"><font color="#FFF">Product.</font></td>
 							  <td style="padding:2px; background:#333333;"><font color="#FFF">Code.</font></td>
 							  <td style="padding:2px; background:#333333;"><font color="#FFF">Price.</font></td>
@@ -62,35 +62,37 @@ if ($_SESSION['chk_load'] > 0 or ! isset($_SESSION['SHOPPING_CART'])) {
         $_SESSION['total'] += $item['qty'] * $item['price'];
     }
     ?>
+
+    <?php $message_cust .= "<tr>
+		<td colspan='4'><div align='right' style='margin-top:10px;'>ยอดรวม(เฉพาะสินค้า)</div></td>
+		<td><div align='right' style='margin-top:10px;'>" . number_format($_SESSION['total'], 2, '.', ',') . "     บาท</div></td>"; ?>
+
     <?php
     if ($_SESSION['total'] >= 999999999999999) {
-        $ems = "<font color='#00DD00'>ฟรี!</font>";
+        $ems = "<font color = '#00DD00'>ฟรี!</font>";
         $total = $_SESSION['total'];
     } else {
         $ems = number_format($this->_cost->costshipping($sumweight) + $this->_cost->costbox($sumweight), 2, '.', ',') . " บาท";
         $total = $_SESSION['total'] + $ems;
     }
-    ?>
-    <?php $message_cust .= "<tr>
-		<td colspan='4'><div align='right' style='margin-top:10px;'>ยอดรวม(เฉพาะสินค้า)</div></td>
-		<td><div align='right' style='margin-top:10px;'>" . number_format($_SESSION['total'], 2, '.', ',') . "     บาท</div></td>
+    ?>    
+    <?php $message_cust .= " </tr>
+
+
+
+    <tr>
+        <td colspan='4'><div align='right'>ไปรษณีย์ไทย ด่วนพิเศษ (EMS)</div></td>
+        <td><div align='right'>" . $ems . "</div></td>
     </tr>
 
-	
-	
-	 <tr>
-          <td colspan='4'><div align='right'>ไปรษณีย์ไทย ด่วนพิเศษ (EMS)</div></td>
-          <td><div align='right'>" . $ems . "</div></td>
-        </tr>
-        
-	
-	
-	
+
+
+
     <tr>
-      <td colspan='4'><div align='right'>ยอดรวมทั้งหมด</div></td>
-      <td><div align='right'>" . number_format($total, 2, '.', ',') . "</div></td>
+        <td colspan='4'><div align='right'>ยอดรวมทั้งหมด</div></td>
+        <td><div align='right'>" . number_format($total, 2, '.', ',') . " บาท</div></td>
     </tr>
-  </table>"; ?>
+    </table>"; ?>
     <?php
     $message_cust .= "<table width='100%'" . $_SESSION['SHOPPING_CART_HTML'] = ob_get_flush() . "
 			<tr>
@@ -191,15 +193,17 @@ if ($_SESSION['chk_load'] > 0 or ! isset($_SESSION['SHOPPING_CART'])) {
               <!--  <img src="<?= base_url('public/img') ?>/progress.gif" /><br/>-->
                 <div style="margin:0 auto; width:800px;">
                     <p>
-                        <?php $message_s = ' <b>ORDER ID : #' . $order_id . '</b></BR>
+                        <?php $total = 0;
+                        $message_s = ' <b>ORDER ID : #' . $order_id . '</b></BR>
    <table width="100%" class="display_basket" cellpadding="0" cellspacing="0">
 							<tr >
-							  <td style="padding:2px; background:#333333;">Product</td>
+                                                          <td style="padding:2px; background:#333333;">Product.</td>
 							  <td style="padding:2px; background:#333333;">Code.</td>
 							  <td style="padding:2px; background:#333333;">Price</td>
 							  <td style="padding:2px; background:#333333;">QTY.</td>
 							  <td style="padding:2px; background:#333333;">Total</td>
-							</tr> '; ?>
+							</tr> ';
+                        ?>
                         <?php
                         $_SESSION['total'] = 0;
                         $sumweight = 0;
@@ -218,6 +222,20 @@ if ($_SESSION['chk_load'] > 0 or ! isset($_SESSION['SHOPPING_CART'])) {
                             $_SESSION['total'] += $item['qty'] * $item['price'];
                         }
                         ?>
+
+                        <?php $message_s .= "<tr>
+		<td colspan='4'><div align='right' style='margin-top:10px;'>ยอดรวม(เฉพาะสินค้า)</div></td>
+		<td><div align='right' style='margin-top:10px;'>" . number_format($_SESSION['total'], 2, '.', ',') . "     บาท</div></td>
+    </tr>
+
+	
+	
+	 <tr>
+          <td colspan='4'><div align='right'>ไปรษณีย์ไทย ด่วนพิเศษ (EMS)</div></td>
+          <td><div align='right'>" . $ems . "</div></td>
+        </tr>"; ?>
+
+
                         <?php
                         if ($_SESSION['total'] >= 9999999999999999) {
                             $ems = "<font color='#00DD00'>ฟรี!</font>";
@@ -227,27 +245,13 @@ if ($_SESSION['chk_load'] > 0 or ! isset($_SESSION['SHOPPING_CART'])) {
                             $total = $_SESSION['total'] + $ems;
                         }
                         ?>
+
                         <?php
                         $message_s .= "<tr>
-		<td colspan='4'><div align='right' style='margin-top:10px;'>ยอดรวม(เฉพาะสินค้า)</div></td>
-		<td><div align='right' style='margin-top:10px;'>" . number_format($total, 2, '.', ',') . "     บาท</div></td>
-    </tr>
-
-	
-	
-	 <tr>
-          <td colspan='4'><div align='right'>ไปรษณีย์ไทย ด่วนพิเศษ (EMS)</div></td>
-          <td><div align='right'>" . $ems . "</div></td>
-        </tr>
-        
-	
-	
-	
-    <tr>
-      <td colspan='4'><div align='right'>ยอดรวมทั้งหมด</div></td>
-      <td><div align='right'>" . number_format($total, 2, '.', ',') . "     บาท</div></td>
-    </tr>
-  </table>";
+                            <td colspan='4'><div align='right'>ยอดรวมทั้งหมด</div></td>
+                            <td><div align='right'>" . number_format($total, 2, '.', ',') . "     บาท</div></td>
+                        </tr>
+                        </table>";
                         $summaryamount = number_format($_SESSION['total'] + $this->_cost->costshipping($sumweight) + $this->_cost->costbox($sumweight), 2, '.', ',');
                         echo $message_s;
                         ?>

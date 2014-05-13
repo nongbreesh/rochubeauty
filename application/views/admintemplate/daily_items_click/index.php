@@ -5,12 +5,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Pending shipping report
+            Item click report (7 days ago)
             <small>Control panel</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Task pending</li>
+            <li class="active"> Item click report</li>
         </ol>
     </section>
 
@@ -35,78 +35,27 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th><strong>Order ID</strong></th>
-                                    <th><strong>รายชื่อ</strong></th>
-                                    <th><strong>ที่อยู่</strong></th>
-                                    <th><strong>ORDER</strong></th>
-                                    <th><strong>ราคารวม</strong></th>
-                                    <th><strong>คอมเมนท์</strong></th>
-                                    <th><strong>ดำเนินการ</strong></th>
+                                    <th>No</th>
+                                    <th>Click</th>
+                                    <th>Name</th>
+                                    <th>Categories</th>
+                                    <th>Date</th>
+                                    <th>IP Addr</th>
                                 </tr>
                             </thead>
-                            <tbody id="payment_list">
+                            <tbody id="products_list">
                                 <?php
                                 $i = 1;
-                                $totalprice = 0;
-                                foreach ($get_order_summary as $row): $sumprice = 0;
+                                foreach ($itemclick_detail as $row):
                                     ?>
 
                                     <tr>
-                                        <td><a href="#" onclick="load_order_detail('<?= $row->order_id ?>');"><?= $row->order_id ?></a></td>
-                                        <td><?= $row->orders_ownername ?></td>
-                                        <td><?= $row->orders_address . " , " . $row->orders_providename . " , " . $row->orders_zipcode ?></td>
-                                        <td>
-                                            <?php foreach ($this->order_model->get_order_summary_list($row->order_id) as $item): ?>
-                                                <?php echo $item->title . "<b>(" . $item->qty . ")</b></BR>"; ?>
-                                            <?php endforeach; ?>
-                                        </td>
-                                        <td>
-                                            <?php foreach ($this->order_model->get_order_summary_detail($row->order_id) as $item): ?>
-                                                <?php
-                                                $txtqty = $item->qty;
-                                                $pricepro = $item->pricepro;
-                                                $pricepro3 = $item->pricepro3;
-                                                $pricepro6 = $item->pricepro6;
-                                                $pricepro12 = $item->pricepro12;
-                                                if ($pricepro != 0) {
-                                                    if ($txtqty < 3) {
-                                                        $txtprice = $pricepro;
-                                                    } elseif ($txtqty < 6) {
-                                                        if ($pricepro3 == 0) {
-                                                            $txtprice = $pricepro;
-                                                        } else {
-                                                            $txtprice = $pricepro3;
-                                                        }
-                                                    } elseif ($txtqty < 12) {
-                                                        if ($pricepro6 == 0) {
-                                                            $txtprice = $pricepro;
-                                                        } else {
-                                                            $txtprice = $pricepro6;
-                                                        }
-                                                    } else {
-
-                                                        if ($pricepro12 == 0) {
-                                                            $txtprice = $pricepro;
-                                                        } else {
-                                                            $txtprice = $pricepro12;
-                                                        }
-                                                    }
-                                                } else {
-                                                    $txtprice = $price;
-                                                }
-                                                $sumprice = $sumprice + $txtprice * $txtqty;
-                                                ?>
-                                            <?php endforeach; ?>
-                                            <?php
-                                            echo number_format($sumprice, 2, '.', ',');
-                                            $totalprice = $totalprice + $sumprice;
-                                            ?>
-                                        </td>
-                                        <td><?= $row->detail ?></td>
-                                        <td><input type="submit" class="btn btn-primary" name="shipping" id="shipping" value="ยืนยันการจัดส่ง" onclick="shipping(<?= $row->order_id ?>)" /></td>
-
-
-                                        </td>
+                                        <td><?= $i; ?></td>
+                                        <td><?= $row->count ?></td>
+                                        <td><?= $row->title ?></td>
+                                        <td> <?= $row->categories_name ?></td>
+                                        <td><?= time_ago($row->clicktime) ?></td>
+                                        <td><?= $row->ip_addr ?></td>
                                     </tr> 
                                     <?php
                                     $i++;
@@ -161,7 +110,7 @@
 
 <script>
     $(document).ready(function() {
-        load_payment_list();
+        // load_payment_list();
     });
 
 

@@ -48,7 +48,7 @@
 
                                 <tr>
                                     <td><?= $i; ?></td>
-                                    <td><a href="#" onclick="load_order_detail('<?= $row->order_id ?>');"><?= $row->order_id ?></a></td>
+                                    <td><a href="javascript:;" onclick="load_order_detail('<?= $row->order_id ?>');"><?= $row->order_id ?></a></td>
                                     <td><?= $row->order_time ?></td>
                                     <td><?= $row->orders_ownername ?></td>
                                     <td>
@@ -69,7 +69,6 @@
                                     <td>
                                         <div class="tools">
                                             <a href="#" onclick="load_order_detail('<?= $row->order_id ?>')" data-toggle="modal"><i class="fa fa-search"></i></a>
-                                            <a href="#" ><i class="fa fa-trash-o"></i></a>
                                         </div>
                                     </td>
                                 </tr> 

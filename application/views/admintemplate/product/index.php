@@ -139,7 +139,7 @@
                                         <div class="input-group">
 
                                             <span class="input-group-addon"><i class="fa fa-tachometer"></i></span>
-                                            <input type="number" name="input_size" id="input_size" class="form-control" required="required" >
+                                            <input type="number" name="input_weight" id="input_weight" class="form-control" required="required" >
                                             <span class="input-group-addon">.00</span>
                                         </div>
                                     </div>
@@ -370,7 +370,7 @@
                         $('#input_isoffer').iCheck('check');
                     }
                     $('#input_title').val(data.result[0].title);
-                    $('#input_size').val(data.result[0].size);
+                    $('#input_weight').val(data.result[0].weight);
                     $('#input_amount').val(data.result[0].amount);
                     $('#input_price').val(data.result[0].price);
                     $('#input_pricepro').val(data.result[0].pricepro);
