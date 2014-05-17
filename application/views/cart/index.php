@@ -51,6 +51,7 @@ if (isset($_POST['update'])) {
     <div class="basketzone">
         <?php if (isset($_SESSION['SHOPPING_CART'])): ?>
             <form  method="post">
+                <div  class="item_list">
                 <table width="100%" class="table table-striped table-bordered table-hover">
                     <tr bgcolor="#333333">
                         <th  valign="middle">รูป</th>
@@ -129,6 +130,7 @@ if (isset($_POST['update'])) {
                                 บาท</div></td>
                     </tr>
                 </table>
+                  </div>
                 <div align="right" style="margin-right:20px; margin-top:5px;">
                     <a href="<?= base_url() ?>item/all" class="btn btn-inverse">กลับไปซื้อต่อ</a>
                     <input name="update" type="submit" class="btn btn-primary" id="update" value="อัพเดทตระกร้าสินค้า"/>

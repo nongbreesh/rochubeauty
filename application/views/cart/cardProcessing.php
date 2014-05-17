@@ -188,13 +188,14 @@ if ($_SESSION['chk_load'] > 0 or ! isset($_SESSION['SHOPPING_CART'])) {
         </head>
 
         <body>
-
-            <div align="center">
-              <!--  <img src="<?= base_url('public/img') ?>/progress.gif" /><br/>-->
-                <div style="margin:0 auto; width:800px;">
-                    <p>
-                        <?php $total = 0;
-                        $message_s = ' <b>ORDER ID : #' . $order_id . '</b></BR>
+            <div class="col-lg-12">
+                <div align="center">
+                  <!--  <img src="<?= base_url('public/img') ?>/progress.gif" /><br/>-->
+                    <div style="margin:0 auto;max-width:800px;">
+                        <p>
+                            <?php
+                            $total = 0;
+                            $message_s = ' <b>ORDER ID : #' . $order_id . '</b></BR>
    <table width="100%" class="display_basket" cellpadding="0" cellspacing="0">
 							<tr >
                                                           <td style="padding:2px; background:#333333;">Product.</td>
@@ -203,27 +204,27 @@ if ($_SESSION['chk_load'] > 0 or ! isset($_SESSION['SHOPPING_CART'])) {
 							  <td style="padding:2px; background:#333333;">QTY.</td>
 							  <td style="padding:2px; background:#333333;">Total</td>
 							</tr> ';
-                        ?>
-                        <?php
-                        $_SESSION['total'] = 0;
-                        $sumweight = 0;
-                        //Print all the items in the shopping cart
-                        foreach ($_SESSION['SHOPPING_CART'] as $itemNumber => $item) {
-                            $sumweight += $item['weight'] * $item['qty'];
                             ?>
-                            <?php $message_s .= "<tr><td width='200'>" . $item['name'] . "</td>
+                            <?php
+                            $_SESSION['total'] = 0;
+                            $sumweight = 0;
+                            //Print all the items in the shopping cart
+                            foreach ($_SESSION['SHOPPING_CART'] as $itemNumber => $item) {
+                                $sumweight += $item['weight'] * $item['qty'];
+                                ?>
+                                <?php $message_s .= "<tr><td width='200'>" . $item['name'] . "</td>
 							  <td>" . $item['item_code'] . "</td>
 							  <td>" . number_format($item['price'], 0, '.', ',') . "</td>
 		<td width='80'>" . $item['qty'] . "</td>
 		<td width='100'><div align='left'>" . number_format($item['qty'] * $item['price'], 0, '.', ',') . "  บาท</div></td>
 		
 	</tr>"; ?>
-                            <?php
-                            $_SESSION['total'] += $item['qty'] * $item['price'];
-                        }
-                        ?>
+                                <?php
+                                $_SESSION['total'] += $item['qty'] * $item['price'];
+                            }
+                            ?>
 
-                        <?php $message_s .= "<tr>
+                            <?php $message_s .= "<tr>
 		<td colspan='4'><div align='right' style='margin-top:10px;'>ยอดรวม(เฉพาะสินค้า)</div></td>
 		<td><div align='right' style='margin-top:10px;'>" . number_format($_SESSION['total'], 2, '.', ',') . "     บาท</div></td>
     </tr>
@@ -236,49 +237,50 @@ if ($_SESSION['chk_load'] > 0 or ! isset($_SESSION['SHOPPING_CART'])) {
         </tr>"; ?>
 
 
-                        <?php
-                        if ($_SESSION['total'] >= 9999999999999999) {
-                            $ems = "<font color='#00DD00'>ฟรี!</font>";
-                            $total = $_SESSION['total'];
-                        } else {
-                            $ems = number_format($this->_cost->costshipping($sumweight) + $this->_cost->costbox($sumweight), 2, '.', ',') . " บาท";
-                            $total = $_SESSION['total'] + $ems;
-                        }
-                        ?>
+                            <?php
+                            if ($_SESSION['total'] >= 9999999999999999) {
+                                $ems = "<font color='#00DD00'>ฟรี!</font>";
+                                $total = $_SESSION['total'];
+                            } else {
+                                $ems = number_format($this->_cost->costshipping($sumweight) + $this->_cost->costbox($sumweight), 2, '.', ',') . " บาท";
+                                $total = $_SESSION['total'] + $ems;
+                            }
+                            ?>
 
-                        <?php
-                        $message_s .= "<tr>
+                            <?php
+                            $message_s .= "<tr>
                             <td colspan='4'><div align='right'>ยอดรวมทั้งหมด</div></td>
                             <td><div align='right'>" . number_format($total, 2, '.', ',') . "     บาท</div></td>
                         </tr>
                         </table>";
-                        $summaryamount = number_format($_SESSION['total'] + $this->_cost->costshipping($sumweight) + $this->_cost->costbox($sumweight), 2, '.', ',');
-                        echo $message_s;
-                        ?>
-                        <br />
-                        <h3 class="title">กรุณาโอนเงินเข้าเลขที่บัญชีด้านล่างนี้ ขอบคุณค่ะ</h3>
-                        <p><img src="http://www.magazinedee.com/share/images/icon_payment_kbank.gif "  /> ธนาคาร กสิกรไทย ประเภท ออมทรัพย์ สาขามหาวิทยาลัยเกษตรศาสตร์ บางเขน  ชื่อบัญชี ชนิกานต์ สงวนพันธุ์ เลขที่บัญชี 694-2-09854-3</p>
+                            $summaryamount = number_format($_SESSION['total'] + $this->_cost->costshipping($sumweight) + $this->_cost->costbox($sumweight), 2, '.', ',');
+                            echo $message_s;
+                            ?>
+                            <br />
+                            <h3 class="title">กรุณาโอนเงินเข้าเลขที่บัญชีด้านล่างนี้ ขอบคุณค่ะ</h3>
+                            <p><img src="http://www.magazinedee.com/share/images/icon_payment_kbank.gif "  /> ธนาคาร กสิกรไทย ประเภท ออมทรัพย์ สาขามหาวิทยาลัยเกษตรศาสตร์ บางเขน  ชื่อบัญชี ชนิกานต์ สงวนพันธุ์ เลขที่บัญชี 694-2-09854-3</p>
 
+                    </div>
+                    <br />
+                    <center>
+                        ระบบได้ส่งข้อมูลการสั่งซื้อถึงเราแล้ว
+                        ขอบคุณที่ไว้วางใจใช้บริการของเรา ท่านสามารถดู Order ที่สั่งได้ที่ Email ขอบคุณครับ<br />
+                        คลิก<a href="<?= base_url('') ?>"><b>ที่นี่</b></a> เพื่อกลับสู่หน้าที่แล้ว
+                    </center>
                 </div>
-                <br />
-                <center>
-                    ระบบได้ส่งข้อมูลการสั่งซื้อถึงเราแล้ว
-                    ขอบคุณที่ไว้วางใจใช้บริการของเรา ท่านสามารถดู Order ที่สั่งได้ที่ Email ขอบคุณครับ<br />
-                    คลิก<a href="<?= base_url('') ?>"><b>ที่นี่</b></a> เพื่อกลับสู่หน้าที่แล้ว
-                </center>
-            </div>
-            <div style="margin:0 auto; width:800px;">
-                <table width="100%" class="display_basket" cellpadding="0" cellspacing="0">
-                    <tr >
-                        <td style="padding:2px; background:#333333;" align="center">Copyright by Rochubeauty.com © 2013-2014 - All Rights Reserved</td>
+                <div style="margin:0 auto; max-width:800px;">
+                    <table width="100%" class="display_basket" cellpadding="0" cellspacing="0">
+                        <tr >
+                            <td style="padding:2px; background:#333333;" align="center">Copyright by Rochubeauty.com © 2013-2014 - All Rights Reserved</td>
 
-                    </tr>
-                </table>
-            </div>
-            <?php
-            unset($_SESSION['SHOPPING_CART']);
-            $_SESSION['chk_load'] ++;
-        }
-        ?>
+                        </tr>
+                    </table>
+                </div>
+                <?php
+                unset($_SESSION['SHOPPING_CART']);
+                $_SESSION['chk_load'] ++;
+            }
+            ?>
+        </div>
     </body>
 </html>

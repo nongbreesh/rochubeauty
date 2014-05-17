@@ -1,9 +1,9 @@
-โ﻿</section>
+</section>
 <footer>
     <section class="footer">
         <p>ลิขสิทธิ์ ©2013 - 2014 Rochubeauty.com สงวนสิทธิ์ทั้งหมด โทร 086-379-5315 คุณนก Email : s.chanikarn@gmail.com</p>
     </section>
-   <!-- <div class="footer-logo"></div> -->
+    <!-- <div class="footer-logo"></div> -->
 </footer>
 </body>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
@@ -47,8 +47,8 @@
                 var parms = data.split('&');
                 $.unblockUI();
                 $(".basket").html("<img src=\"<?= base_url('public') ?>/img/cart.png\">&nbsp;<a href='<?= base_url('cart') ?>'><b> ชนิดสินค้า [" + parms[0] + "]</b><br></a> <b>ยอดรวม</b> : " + parms[1] + "<b> บาท</b>");
-
-
+                $(".cart_mini_count").html(parms[0]);
+                location.href = '<?= base_url('cart') ?>';
             }
         })
 
@@ -84,30 +84,37 @@
 </script>
 <!-- Start of StatCounter Code for Default Guide -->
 <script type="text/javascript">
-var sc_project=9781507; 
-var sc_invisible=1; 
-var sc_security="04b06291"; 
-var scJsHost = (("https:" == document.location.protocol) ?
-"https://secure." : "http://www.");
-document.write("<sc"+"ript type='text/javascript' src='" +
-scJsHost+
-"statcounter.com/counter/counter.js'></"+"script>");
+    var sc_project = 9781507;
+    var sc_invisible = 1;
+    var sc_security = "04b06291";
+    var scJsHost = (("https:" == document.location.protocol) ?
+            "https://secure." : "http://www.");
+    document.write("<sc" + "ript type='text/javascript' src='" +
+            scJsHost +
+            "statcounter.com/counter/counter.js'></" + "script>");
 </script>
 <noscript><div class="statcounter"><a title="hit counter"
-href="http://statcounter.com/" target="_blank"><img
-class="statcounter"
-src="http://c.statcounter.com/9781507/0/04b06291/1/"
-alt="hit counter"></a></div></noscript>
+                                      href="http://statcounter.com/" target="_blank"><img
+            class="statcounter"
+            src="http://c.statcounter.com/9781507/0/04b06291/1/"
+            alt="hit counter"></a></div></noscript>
 <!-- End of StatCounter Code for Default Guide -->
 
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-39217117-2', 'rochubeauty.com');
-  ga('send', 'pageview');
+    ga('create', 'UA-39217117-2', 'rochubeauty.com');
+    ga('send', 'pageview');
 
 </script>
 </html>

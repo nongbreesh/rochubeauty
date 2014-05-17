@@ -75,4 +75,5 @@
             <div class="relate">   <a href="<?= base_url('item') ?>/detail/<?= $items->id ?>"><img title="<?= $items->title ?>" alt="<?= $items->title ?>" src="<?= base_url('public/uploads') ?>/Thumbnails_<?= $items->pic ?>" style="width:73px;" /></a></div>
                 <?php endforeach; ?>
     </div>
+    <div style="clear:both;"></div>
 </div>

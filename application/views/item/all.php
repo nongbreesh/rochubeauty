@@ -27,6 +27,12 @@
                 <a href="javascript:;" onClick="addCart('<?=$items->id?>');">ซื้อเลย</a> | <a href="<?= base_url('item') ?>/detail/<?= $items->id ?>/<?= $this->_data->checkword($items->title) ?>">ดูเพิ่มเติม</a>
             </div>
             <div class="div_price"><?= number_format($items->price, 2, '.', ',') ?> บาท</div>
+              <div class="buyzone">
+                <div class="fb-share-button" data-href="<?= base_url() ?>item/detail/<?= $items->id ?>" data-type="button_count" style="position: absolute;right: 0;top:-20px;z-index: 800;"></div>
+
+                <a href="javascript:;" onClick="addCart('<?= $items->id ?>');">ซื้อเลย</a> | <a href="<?= base_url('item') ?>/detail/<?= $items->id ?>/<?= $this->_data->checkword($items->title) ?>">ดูเพิ่มเติม</a>
+                <p><?= word_limiter($items->wordwrap, 5) ?></p>
+            </div>
         </section>
     <?php endforeach; ?>
 

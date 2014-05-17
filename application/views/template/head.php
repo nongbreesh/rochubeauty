@@ -1,13 +1,15 @@
-<?php session_start();
+<?php
+session_start();
 $_SESSION['chk_load'] = 0;
 ?>
 <!DOCTYPE HTML>
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title><?=$title?></title>
-        <meta name="description" content="<?=$mDesc?>">
-        <meta name="keywords" content="<?=$mKeyword?>">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+        <title><?= $title ?></title>
+        <meta name="description" content="<?= $mDesc ?>">
+        <meta name="keywords" content="<?= $mKeyword ?>">
         <script type="text/javascript" src="<?php echo base_url('public') ?>/js/jquery-1.7.2.min.js" rel="stylesheet"></script>  
         <link href="<?= base_url('public') ?>/css/bootstrap.css" rel="stylesheet"
               type="text/css" />
@@ -30,6 +32,56 @@ $_SESSION['chk_load'] = 0;
                     document.form1.submit();
                 }
             }
+
+
+
+            $(function() {
+
+
+                var theToggle = document.getElementById('toggle');
+
+// based on Todd Motto functions
+// http://toddmotto.com/labs/reusable-js/
+
+// hasClass
+                function hasClass(elem, className) {
+                    return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+                }
+// addClass
+                function addClass(elem, className) {
+                    if (!hasClass(elem, className)) {
+                        elem.className += ' ' + className;
+                    }
+                }
+// removeClass
+                function removeClass(elem, className) {
+                    var newClass = ' ' + elem.className.replace(/[\t\r\n]/g, ' ') + ' ';
+                    if (hasClass(elem, className)) {
+                        while (newClass.indexOf(' ' + className + ' ') >= 0) {
+                            newClass = newClass.replace(' ' + className + ' ', ' ');
+                        }
+                        elem.className = newClass.replace(/^\s+|\s+$/g, '');
+                    }
+                }
+// toggleClass
+                function toggleClass(elem, className) {
+                    var newClass = ' ' + elem.className.replace(/[\t\r\n]/g, " ") + ' ';
+                    if (hasClass(elem, className)) {
+                        while (newClass.indexOf(" " + className + " ") >= 0) {
+                            newClass = newClass.replace(" " + className + " ", " ");
+                        }
+                        elem.className = newClass.replace(/^\s+|\s+$/g, '');
+                    } else {
+                        elem.className += ' ' + className;
+                    }
+                }
+
+                theToggle.onclick = function() {
+                    toggleClass(this, 'on');
+                    return false;
+                }
+            });
+
         </script>
     </head>
     <body>
@@ -73,6 +125,7 @@ $_SESSION['chk_load'] = 0;
                 <div class="col-lg-12 main_menu">
 
                     <section class="col-lg-12">
+
                         <ul >
                             <li><a href="<?= base_url(); ?>">หน้าแรก</a></li>
                             <li><a href="<?= base_url(); ?>item/all">สินค้าทั้งหมด</a></li>
@@ -82,5 +135,43 @@ $_SESSION['chk_load'] = 0;
                             <li><a href="<?= base_url(); ?>pages/trackingdata">สถานะการส่งสินค้า</a></li>
                         </ul>
                     </section>
+                </div>
+                <a href="#menu" id="toggle"><span></span></a>
+
+                <div id="menu">
+                    <ul>
+                        <li><a href="<?= base_url(); ?>">หน้าแรก</a></li>
+                        <li><a href="<?= base_url(); ?>item/all">สินค้าทั้งหมด</a></li>
+                        <li><a href="<?= base_url() ?>pages/payment">แจ้งชำระเงิน</a></li>
+                        <li><a href="<?= base_url(); ?>pages/contactus">ติดต่อเรา</a></li>
+                        <li><a href="<?= base_url(); ?>pages/view/10">วิธีการซื้อสินค้า</a></li>
+                        <li><a href="<?= base_url(); ?>pages/trackingdata">สถานะการส่งสินค้า</a></li>
+                        <li><a href="#">ถาม - ตอบ</a></li>
+                        <li><a href="#">เกี่ยวกับเรา</a></li>
+                        <li><a href="<?= base_url(); ?>pages/contactus">ติดต่อเรา</a></li>
+                    </ul>
+                </div>
+
+                <div class="cart_mini">
+                    <?php if (!isset($_SESSION['SHOPPING_CART'])): ?>
+                      <span class="badge pull-right cart_mini_count" style="background: #FF4141;">0</span>
+                    <?php else: ?>
+                        <?php
+                        $_SESSION['total'] = 0;
+                        $sumweight = 0;
+                        foreach ($_SESSION['SHOPPING_CART'] as $itemNumber => $item) {
+
+                            $sumweight += $item['weight'] * $item['qty'];
+                            $_SESSION['total'] += $item['qty'] * $item['price'];
+                        }
+
+
+                        $_SESSION['total'] = number_format($_SESSION['total'] + $this->_cost->costshipping($sumweight) + $this->_cost->costbox($sumweight), 2, '.', ',');
+                        ?>
+                        <span class="badge pull-right cart_mini_count" style="background: #FF4141;"><?= count($_SESSION['SHOPPING_CART']) ?></span>
+                    <?php endif; ?>
+                    <a href="<?= base_url('cart') ?>"></a>
+                    <span class="glyphicon glyphicon-shopping-cart"></span>
+
                 </div>
             </header>

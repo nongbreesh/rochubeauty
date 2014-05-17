@@ -61,11 +61,11 @@
                 <li><a href="<?= base_url('item') ?>/detail/<?= $items->id ?>"><div class="offerimg"><center><img title="<?= $items->title ?>" alt="<?= $items->title ?>" src="<?= base_url('public/uploads') ?>/<?= $items->pic ?>" style="width:50px;height: auto; " /></center></div></a> <a href="<?= base_url('item') ?>/detail/<?= $items->id ?>" class="prod"><?= $items->title ?></a><a href="#" class="prod"></a></li>
             <?php endforeach; ?>
         </ul>  
-
+        <div style="clear:both;"></div>
         <div class="topic">
             <h1>การันตรีคุณภาพ</h1></div> 
 
-        <span style="float: right;margin: 5px;"> <iframe width="100%" src="//www.youtube.com/embed/IGLBliqz4K4?rel=0" frameborder="0" allowfullscreen></iframe>   </span> 
+        <span style="float: right;margin: 5px;width: 100%;"> <iframe width="100%" src="//www.youtube.com/embed/IGLBliqz4K4?rel=0" frameborder="0" allowfullscreen></iframe>   </span> 
 
     </div>
 
