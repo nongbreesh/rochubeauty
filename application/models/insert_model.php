@@ -23,6 +23,17 @@ class Insert_model extends CI_Model {
         endif;
     }
 
+    function insert_campaign($input) {
+
+
+        if ($this->db->insert('campaign', $input)):
+            return true;
+        else:
+            return false;
+        endif;
+        
+    }
+
     function insert_PaymentRequest($input) {
         $value = array(
             'username' => $input['user'],

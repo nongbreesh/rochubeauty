@@ -47,7 +47,7 @@ if (isset($_POST['update'])) {
 }
 ?>
 
-<div class="col-sm-12 col-md-12">
+<div class="col-sm-12 col-md-12" style="padding: 0px;">
     <div class="basketzone">
         <?php if (isset($_SESSION['SHOPPING_CART'])): ?>
             <form  method="post">
@@ -131,14 +131,14 @@ if (isset($_POST['update'])) {
                     </tr>
                 </table>
                   </div>
-                <div align="right" style="margin-right:20px; margin-top:5px;">
+                <div align="right" style=" margin-top:5px;">
                     <a href="<?= base_url() ?>item/all" class="btn btn-inverse">กลับไปซื้อต่อ</a>
                     <input name="update" type="submit" class="btn btn-primary" id="update" value="อัพเดทตระกร้าสินค้า"/>
                 </div>
             </form>         
         <?php endif; ?>
     </div>
-    <div class="col-lg-7 col-md-7">
+    <div class="col-lg-7 col-md-7 no-margin">
         <div class="contactform">
             <h5>ที่อยู่สำหรับจัดส่งสินค้า</h5>
 
@@ -198,7 +198,7 @@ if (isset($_POST['update'])) {
             </form>
         </div>
     </div>
-    <div class="col-lg-5 col-md-5">
+    <div class="col-lg-5 col-md-5 no-margin">
         <div class="contactpayment">
             <h5>เงื่อนไขการชำระเงิน</h5>
             <label class="radio">

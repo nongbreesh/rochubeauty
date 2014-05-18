@@ -16,54 +16,72 @@
         <p>
             <span style="color:#008000;"><img src="http://www.magazinedee.com/share/images/icon_payment_kbank.gif " style="width: 40px; height: 40px;" /> ธนาคาร กสิกรไทย  ประเภท ออมทรัพย์ สาขามหาวิทยาลัยเกษตรศาสตร์ บางเขน  ชื่อบัญชี ชนิกานต์ สงวนพันธุ์  เลขที่บัญชี 694-2-09854-3</span>
         </p>
-        
+
         <div class="contactform">
 
-            <form id="form1" name="form1" class="form-group" method="post" action="<?= base_url() ?>pages/payment_process" >
-                <table  class="table table-condensed">
-                    <tr>
-                        <td width="208"><div> เลขที่ใบสั่งซื้อ <span class="style1">*</span> : </div></td>
-                        <td width="400"><input required="required" name="order_id" type="text" id="order_id" size="15" class="required"/>
-                            (Order ID ในอีเมลล์)</td>
-                    </tr>
-                    <tr>
-                        <td><div> ชำระเงินเข้าบัญชี<span class="style1">*</span> : </div></td>
-                        <td><select required="required" name="bank_account" class="required">
-                                <option value="ธนาคารกสิกรไทย เลขที่บัญชี 797-2083-636 ">ธนาคารกสิกรไทย เลขที่บัญชี  694-2-09854-3</option><option></select></td>
-                    </tr>
-                    <tr>
-                        <td> วันที่ชำระเงิน<span class="style1">*</span> :</td>
-                        <td><input required="required" name="date_pay" type="text" id="date_pay" size="15" class="required"/>
-                            (14/04/2555)</td>
-                    </tr>
-                    <tr>
-                        <td>เวลา<span class="style1">*</span>: </td>
-                        <td><input required="required" name="time_pay" type="text" id="time_pay" size="5" class="required" />
-                            (17:52)</td>
-                    </tr>
-                    <tr>
-                        <td>จำนวนเงิน<span class="style1">*</span> : </td>
-                        <td><input required="required" name="amount" type="text" id="amount" size="7" class="required" />
-                            บาท</td>
-                    </tr>
-                    <tr>
-                        <td>ชื่อ<span class="style1">*</span> : </td>
-                        <td><input required="required" name="full_name" type="text" id="full_name" size="30" class="required"/></td>
-                    </tr>
-                    <tr>
-                        <td>เบอร์โทรศัพท์<span class="style1">*</span> : </td>
-                        <td><input required="required" name="tel" type="text" id="tel" size="15" class="required"/></td>
-                    </tr>
-                    <tr>
-                        <td>อีเมลล์<span class="style1">*</span> : </td>
-                        <td><input  name="email" type="text" id="email" size="20" class="required"/></td>
-                    </tr>
-                    <tr>
-                        <td>ข้อมูล<span class="style1">(ถ้ามี)</span> : </td>
-                        <td><textarea name="message" cols="40" rows="5" id="message">
-                            </textarea></td>
-                    </tr>
-                </table>
+            <form id="form1" name="form1"class="form-horizontal" role="form" method="post" action="<?= base_url() ?>pages/payment_process" >
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">เลขที่ใบสั่งซื้อ <span class="style1">*</span> </label>
+                    <div class="col-sm-10">
+                        <input required="required" name="order_id" type="text" id="order_id" size="15" class="form-control"/>
+                        (Order ID ในอีเมลล์)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="bank_account" class="col-sm-2 control-label">ชำระเงินเข้าบัญชี<span class="style1">*</span> </label>
+                    <div class="col-sm-10">
+                        <select required="required" name="bank_account" class="form-control">
+                            <option value="ธนาคารกสิกรไทย เลขที่บัญชี 797-2083-636 ">ธนาคารกสิกรไทย เลขที่บัญชี  694-2-09854-3</option><option></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="date_pay" class="col-sm-2 control-label">วันที่ชำระเงิน <span class="style1">*</span></label>
+                    <div class="col-sm-10">
+                        <input required="required" name="date_pay" type="text" id="date_pay" size="15" class="form-control"/>
+                        (14/04/2555)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="time_pay" class="col-sm-2 control-label">เวลา <span class="style1">*</span></label>
+                    <div class="col-sm-10">
+                        <input required="required" name="time_pay" type="text" id="time_pay" size="15" class="form-control"/>
+                        (17:52)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="amount" class="col-sm-2 control-label">จำนวนเงิน <span class="style1">*</span></label>
+                    <div class="col-sm-10">
+                        <input required="required" name="amount" type="text" id="amount" size="15" class="form-control"/>
+                        บาท
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="full_name" class="col-sm-2 control-label">ชื่อ - สกุล <span class="style1">*</span></label>
+                    <div class="col-sm-10">
+                        <input required="required" name="full_name" type="text" id="full_name" size="15" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="tel" class="col-sm-2 control-label">เบอร์โทรศัพท์ <span class="style1">*</span></label>
+                    <div class="col-sm-10">
+                        <input required="required" name="tel" type="text" id="tel" size="15" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-2 control-label">อีเมลล์ <span class="style1">*</span></label>
+                    <div class="col-sm-10">
+                        <input required="required" name="email" type="text" id="email" size="15" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">ข้อมูล<span class="style1">(ถ้ามี)</span></label>
+                    <div class="col-sm-10">
+                        <textarea name="message" cols="40" rows="5" id="message" class="form-control">
+                        </textarea>
+                    </div>
+                </div>
+           
                 <div align="center">
 
                     <input name="input" type="reset" class="btn btn-primary" value="ล้างข้อมูล" />

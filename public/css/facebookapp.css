@@ -1,0 +1,56 @@
+@font-face {
+    font-family: 'truebold';
+    src: url('../fonts/truebold.eot');
+    src: local('truebold'),  url('../fonts/truebold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/truebold.woff') format('woff'), 
+        url('../fonts/truebold.ttf') format('truetype'), 
+        url('../fonts/truebold.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'truemedium';
+    src: url('fonts/truemedium.eot');
+    src: local('truemedium'),  url('../fonts/truemedium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/truemedium.woff') format('woff'), 
+        url('../fonts/truemedium.ttf') format('truetype'), 
+        url('../fonts/truemedium.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    font: 14px sans-serif;
+    margin: 0px;
+}
+.container{
+    width: 760px;
+    height: 700px;
+    margin: 0 auto;
+    background: #fff;
+    position: relative;
+}
+h1{
+    font: 24px 'truebold';
+}
+h2{
+    font: 18px 'truebold';
+    text-align: center;
+    color: #f00;
+    padding: 0px;
+    margin: 0px;
+}
+
+.reward{
+    margin-top:20px;
+    width: 370px;
+}
+.reward p{
+     font: 14px 'truemedium';
+}
+.rewarddetail{
+    font: 14px 'truemedium';
+    position: absolute;
+    width: 330px;
+    top:20px;
+    right: 10px;
+}

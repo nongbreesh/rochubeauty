@@ -10,11 +10,11 @@
             </div>
             <h1><?= $items->title ?></h1>
             <p class="price"><?= number_format($items->price, 2, '.', ',') ?> บาท</p>
-            <div class="div_buy_bg"></div>
+            <!--<div class="div_buy_bg"></div>
             <div class="div_buy">
                 <p><?= word_limiter($items->wordwrap, 5) ?></p>
                 <a href="#">ซื้อเลย</a> | <a href="<?= base_url('item') ?>/detail/<?= $items->id ?>/<?= $this->_data->checkword($items->title) ?>">ดูเพิ่มเติม</a>
-            </div>
+            </div>-->
             <div class="div_price"><?= number_format($items->price, 2, '.', ',') ?> บาท</div>
             <div class="buyzone">
                 <div class="fb-share-button" data-href="<?= base_url() ?>item/detail/<?= $items->id ?>" data-type="button_count" style="position: absolute;right: 0;top:-20px;z-index: 800;"></div>

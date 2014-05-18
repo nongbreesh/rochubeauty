@@ -19,7 +19,12 @@ $_SESSION['chk_load'] = 0;
         <link href="<?php echo base_url() ?>/public/css/jquery.bxslider.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="<?= base_url('public') . '/css/datepicker.css' ?>"/>
         <link rel="stylesheet/less" type="text/css" href="<?= base_url('public') . '/less/datepicker.less' ?>" />
-        <script type="text/javascript" src="<?php echo base_url() ?>/public/js/jquery.bxslider.js"></script>
+        <script type="text/javascript" src="<?php echo base_url() ?>public/js/jquery.bxslider.js"></script>
+
+        <link href="<?php echo base_url() ?>public/css/responsivemobilemenu.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="<?= base_url('public') ?>/css/datepicker.css"/>
+        <script type="text/javascript" src="<?php echo base_url() ?>public/js/responsivemobilemenu.js"></script>
+
         <script language="javascript">
             function fncSubmit()
             {
@@ -35,52 +40,6 @@ $_SESSION['chk_load'] = 0;
 
 
 
-            $(function() {
-
-
-                var theToggle = document.getElementById('toggle');
-
-// based on Todd Motto functions
-// http://toddmotto.com/labs/reusable-js/
-
-// hasClass
-                function hasClass(elem, className) {
-                    return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
-                }
-// addClass
-                function addClass(elem, className) {
-                    if (!hasClass(elem, className)) {
-                        elem.className += ' ' + className;
-                    }
-                }
-// removeClass
-                function removeClass(elem, className) {
-                    var newClass = ' ' + elem.className.replace(/[\t\r\n]/g, ' ') + ' ';
-                    if (hasClass(elem, className)) {
-                        while (newClass.indexOf(' ' + className + ' ') >= 0) {
-                            newClass = newClass.replace(' ' + className + ' ', ' ');
-                        }
-                        elem.className = newClass.replace(/^\s+|\s+$/g, '');
-                    }
-                }
-// toggleClass
-                function toggleClass(elem, className) {
-                    var newClass = ' ' + elem.className.replace(/[\t\r\n]/g, " ") + ' ';
-                    if (hasClass(elem, className)) {
-                        while (newClass.indexOf(" " + className + " ") >= 0) {
-                            newClass = newClass.replace(" " + className + " ", " ");
-                        }
-                        elem.className = newClass.replace(/^\s+|\s+$/g, '');
-                    } else {
-                        elem.className += ' ' + className;
-                    }
-                }
-
-                theToggle.onclick = function() {
-                    toggleClass(this, 'on');
-                    return false;
-                }
-            });
 
         </script>
     </head>
@@ -102,7 +61,7 @@ $_SESSION['chk_load'] = 0;
                     </ul>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="LineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="LineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="z-index: 1300;">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -136,9 +95,8 @@ $_SESSION['chk_load'] = 0;
                         </ul>
                     </section>
                 </div>
-                <a href="#menu" id="toggle"><span></span></a>
 
-                <div id="menu">
+                <div class="rmm">
                     <ul>
                         <li><a href="<?= base_url(); ?>">หน้าแรก</a></li>
                         <li><a href="<?= base_url(); ?>item/all">สินค้าทั้งหมด</a></li>
@@ -152,9 +110,12 @@ $_SESSION['chk_load'] = 0;
                     </ul>
                 </div>
 
+
+
+
                 <div class="cart_mini">
                     <?php if (!isset($_SESSION['SHOPPING_CART'])): ?>
-                      <span class="badge pull-right cart_mini_count" style="background: #FF4141;">0</span>
+                        <span class="badge pull-right cart_mini_count" style="background: #FF4141;">0</span>
                     <?php else: ?>
                         <?php
                         $_SESSION['total'] = 0;
